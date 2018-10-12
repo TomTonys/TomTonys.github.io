@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,9 +84,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '6.4.2',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -178,7 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -224,18 +224,39 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
       
     </ul>
   
-
-  
-    
 
   
 
@@ -257,6 +278,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -323,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-10-12 17:26:00 / Modified: 17:30:01" itemprop="dateCreated datePublished" datetime="2018-10-12T17:26:00+08:00">2018-10-12</time>
+              <time title="Created: 2018-10-12 17:26:00 / Modified: 20:43:52" itemprop="dateCreated datePublished" datetime="2018-10-12T17:26:00+08:00">2018-10-12</time>
             
 
             
@@ -364,23 +388,22 @@
         
           
             <h1 id="在虚拟机中的Centos-7上架设搭建简单的网站"><a href="#在虚拟机中的Centos-7上架设搭建简单的网站" class="headerlink" title="在虚拟机中的Centos 7上架设搭建简单的网站"></a>在虚拟机中的Centos 7上架设搭建简单的网站</h1><h2 id="1-安装Apache服务"><a href="#1-安装Apache服务" class="headerlink" title="1. 安装Apache服务"></a>1. 安装Apache服务</h2><blockquote>
-<p>yum install -y httpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y httpd</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="2-启动Apache服务"><a href="#2-启动Apache服务" class="headerlink" title="2. 启动Apache服务"></a>2. 启动Apache服务</h2><blockquote>
-<p>systemctl start httpd.service</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start httpd.service</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="3-在“-var-www-”下创建web文件夹"><a href="#3-在“-var-www-”下创建web文件夹" class="headerlink" title="3. 在“/var/www/”下创建web文件夹"></a>3. 在“/var/www/”下创建web文件夹</h2><blockquote>
-<p>mkdir /var/www/tony</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/www/tony</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="4-更改配置文件，设置基于域名的虚拟主机"><a href="#4-更改配置文件，设置基于域名的虚拟主机" class="headerlink" title="4. 更改配置文件，设置基于域名的虚拟主机"></a>4. 更改配置文件，设置基于域名的虚拟主机</h2><blockquote>
-<p>vim /etc/httpd/conf/httpd.conf<br>NameVirtualHost 192.168.31.41:80  <em>ip地址为虚拟机地址</em><br>·<virtualhost 192.168.31.41:80="">·<br>DocumentRoot /var/www/tony  <em>目标指向第三步创建的文件夹</em><br>ServerName tony.text.com  <em>网址，如果你有的话</em><br>·</virtualhost>·</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf/httpd.conf </span><br><span class="line">NameVirtualHost 192.168.31.41:80  _ip地址为虚拟机地址_</span><br><span class="line">&lt;VirtualHost 192.168.31.41:80&gt;</span><br><span class="line">DocumentRoot /var/www/tony  _目标指向第三步创建的文件夹_</span><br><span class="line">ServerName tony.text.com  _网址，如果你有的话_</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="5-重新开启apache服务"><a href="#5-重新开启apache服务" class="headerlink" title="5. 重新开启apache服务"></a>5. 重新开启apache服务</h2><blockquote>
-<p>systemctl  restart httpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl  restart httpd</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="6-将服务设置为开机自启"><a href="#6-将服务设置为开机自启" class="headerlink" title="6. 将服务设置为开机自启"></a>6. 将服务设置为开机自启</h2><blockquote>
-<p>systemctl enable httpd</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable httpd</span><br></pre></td></tr></table></figure></blockquote>
 
           
         
@@ -471,6 +494,21 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
             </nav>
           
 
@@ -528,7 +566,7 @@
 
 
 
-  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.4.2</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.2</div>
 
 
 
@@ -620,6 +658,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.2"></script>
+
+
 
   
 
