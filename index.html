@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-10-13 22:20:00 / Modified: 22:28:39" itemprop="dateCreated datePublished" datetime="2018-10-13T22:20:00+08:00">2018-10-13</time>
+              <time title="Created: 2018-10-13 22:20:00 / Modified: 22:59:55" itemprop="dateCreated datePublished" datetime="2018-10-13T22:20:00+08:00">2018-10-13</time>
             
 
             
@@ -386,8 +386,7 @@
 
       
         
-          
-            <h1 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h1><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="创建计划任务"><a href="#创建计划任务" class="headerlink" title="创建计划任务"></a>创建计划任务</h4><blockquote>
+          <h1 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h1><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="创建计划任务"><a href="#创建计划任务" class="headerlink" title="创建计划任务"></a>创建计划任务</h4><blockquote>
 <p><code>crontab -e</code></p>
 </blockquote>
 <h4 id="查看已创建的计划任务"><a href="#查看已创建的计划任务" class="headerlink" title="查看已创建的计划任务"></a>查看已创建的计划任务</h4><blockquote>
@@ -396,16 +395,13 @@
 <h4 id="删除计划任务"><a href="#删除计划任务" class="headerlink" title="删除计划任务"></a>删除计划任务</h4><blockquote>
 <p><code>crontab -r</code></p>
 </blockquote>
-<h3 id="计划格式"><a href="#计划格式" class="headerlink" title="计划格式"></a>计划格式</h3><blockquote>
-<p><code>* * * * * command</code></p>
-</blockquote>
-<p><em>分　时　日　月　周　命令</em><br><em>星号（<em>）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。<br>逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”<br>中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”<br>正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如</em>/10，如果用在minute字段，表示每十分钟执行一次。</em></p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><blockquote>
-<p><code>0 12,17,20 * * * python2 /home/test/test.py &gt;&gt; /home/test/test.log</code></p>
-</blockquote>
-<p><em>每天12/17/20点整执行Python文件test.py,并将输出结果保存到test.log文件中</em></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/13/Linux计划_crontab/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -503,12 +499,24 @@
                 
               
 
-              <time title="Created: 2018-10-12 21:26:00 / Modified: 22:20:03" itemprop="dateCreated datePublished" datetime="2018-10-12T21:26:00+08:00">2018-10-12</time>
+              <time title="Created: 2018-10-12 21:26:00" itemprop="dateCreated datePublished" datetime="2018-10-12T21:26:00+08:00">2018-10-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-13 23:00:37" itemprop="dateModified" datetime="2018-10-13T23:00:37+08:00">2018-10-13</time>
               
             
           </span>
@@ -542,8 +550,7 @@
 
       
         
-          
-            <h1 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h1><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><blockquote>
+          <h1 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h1><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><blockquote>
 <p>adb shell screencap /sdcard/wangdoujia.png</p>
 </blockquote>
 <h4 id="安装apk"><a href="#安装apk" class="headerlink" title="安装apk"></a>安装apk</h4><blockquote>
@@ -556,77 +563,14 @@
 <p>adb shell pm list package</p>
 </blockquote>
 <hr>
-<h1 id="aapt"><a href="#aapt" class="headerlink" title="aapt"></a>aapt</h1><h4 id="查看app的package"><a href="#查看app的package" class="headerlink" title="查看app的package"></a>查看app的package</h4><blockquote>
-<p>aapt dump badging H:\测试学习\wandoujia.apk | findstr “package”</p>
-</blockquote>
-<h4 id="查看app的启动页面的activity"><a href="#查看app的启动页面的activity" class="headerlink" title="查看app的启动页面的activity"></a>查看app的启动页面的activity</h4><blockquote>
-<p>aapt dump badging H:\测试学习\wandoujia.apk | findstr “launchable-activity”</p>
-</blockquote>
-<hr>
-<h1 id="Moneky"><a href="#Moneky" class="headerlink" title="Moneky"></a>Moneky</h1><h4 id="在手机上执行100个伪随机事件"><a href="#在手机上执行100个伪随机事件" class="headerlink" title="在手机上执行100个伪随机事件"></a>在手机上执行100个伪随机事件</h4><blockquote>
-<p>adb shell monkey 100</p>
-</blockquote>
-<h4 id="每次随机事件间隔3秒并显示日志"><a href="#每次随机事件间隔3秒并显示日志" class="headerlink" title="每次随机事件间隔3秒并显示日志"></a>每次随机事件间隔3秒并显示日志</h4><blockquote>
-<p>adb shell monkey -v –throttle 3000 10</p>
-</blockquote>
-<h4 id="自定义事件概率"><a href="#自定义事件概率" class="headerlink" title="自定义事件概率"></a>自定义事件概率</h4><h6 id="touch概率为30"><a href="#touch概率为30" class="headerlink" title="touch概率为30%"></a>touch概率为30%</h6><blockquote>
-<p>adb shell monkey -v –pct-touch 30 200<br>_触控<em>touch,启动事件—appswtich,手势—motion,旋转—rotation,轨迹—trackball,基本导航—nav,主要导航-majornav,系统按键-syskeys</em></p>
-</blockquote>
-<h6 id="设定多个事件的概率"><a href="#设定多个事件的概率" class="headerlink" title="设定多个事件的概率"></a>设定多个事件的概率</h6><blockquote>
-<p>adb shell monkey -v –pct-touch 30 –pct-motion 40 200</p>
-</blockquote>
-<h4 id="在指定的地方执行事件"><a href="#在指定的地方执行事件" class="headerlink" title="在指定的地方执行事件"></a>在指定的地方执行事件</h4><h6 id="在指定的app里进行随机事件"><a href="#在指定的app里进行随机事件" class="headerlink" title="在指定的app里进行随机事件"></a>在指定的app里进行随机事件</h6><blockquote>
-<p>adb shell monkey -p 包名 100</p>
-</blockquote>
-<h6 id="在指定的activity内进行随机事件"><a href="#在指定的activity内进行随机事件" class="headerlink" title="在指定的activity内进行随机事件"></a>在指定的activity内进行随机事件</h6><blockquote>
-<p>adb shell monkey -c activity 100</p>
-</blockquote>
-<h4 id="遇到特殊事件处理"><a href="#遇到特殊事件处理" class="headerlink" title="遇到特殊事件处理"></a>遇到特殊事件处理</h4><h6 id="遇到crash后继续事件"><a href="#遇到crash后继续事件" class="headerlink" title="遇到crash后继续事件"></a>遇到crash后继续事件</h6><blockquote>
-<p>adb shell monkey –ignore-crashes</p>
-</blockquote>
-<h6 id="遇到超时时继续事件"><a href="#遇到超时时继续事件" class="headerlink" title="遇到超时时继续事件"></a>遇到超时时继续事件</h6><blockquote>
-<p>adb shell monkey –ignore-timouts</p>
-</blockquote>
-<h6 id="遇到权限不足时继续事件"><a href="#遇到权限不足时继续事件" class="headerlink" title="遇到权限不足时继续事件"></a>遇到权限不足时继续事件</h6><blockquote>
-<p>adb shell monkey –ignore-security-exceptions</p>
-</blockquote>
-<h4 id="Moneky-API"><a href="#Moneky-API" class="headerlink" title="Moneky API"></a>Moneky API</h4><h6 id="启动应用的activity"><a href="#启动应用的activity" class="headerlink" title="启动应用的activity"></a>启动应用的activity</h6><blockquote>
-<p>LaunchActivity(pkg_name,cl_name)<br><em>参数：包名，启动的activity</em></p>
-</blockquote>
-<h6 id="模拟一次点击事件"><a href="#模拟一次点击事件" class="headerlink" title="模拟一次点击事件"></a>模拟一次点击事件</h6><blockquote>
-<p>Tap(x,y,tapDuration)<br><em>参数：x,y坐标。tap持续时间(省)</em></p>
-</blockquote>
-<h6 id="设置睡眠时间"><a href="#设置睡眠时间" class="headerlink" title="设置睡眠时间"></a>设置睡眠时间</h6><blockquote>
-<p>UserWait(sleepTime)</p>
-</blockquote>
-<h6 id="按键"><a href="#按键" class="headerlink" title="按键"></a>按键</h6><blockquote>
-<p>DispatchPress(keyName)</p>
-</blockquote>
-<h6 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h6><blockquote>
-<p>DispatchString(input)</p>
-</blockquote>
-<h6 id="打开关闭软键盘"><a href="#打开关闭软键盘" class="headerlink" title="打开关闭软键盘"></a>打开关闭软键盘</h6><blockquote>
-<p>DispatchFlip(true/false)</p>
-</blockquote>
-<h6 id="长按事件"><a href="#长按事件" class="headerlink" title="长按事件"></a>长按事件</h6><blockquote>
-<p>PressAndHold(x,y,pressDuration)</p>
-</blockquote>
-<h6 id="缩放手势"><a href="#缩放手势" class="headerlink" title="缩放手势"></a>缩放手势</h6><blockquote>
-<p>Drag(xStart,yStart,xend,yend,x2Start,y2Start,x2end,y2end,stepCount)</p>
-</blockquote>
-<h6 id="运行1次脚本"><a href="#运行1次脚本" class="headerlink" title="运行1次脚本"></a>运行1次脚本</h6><blockquote>
-<p>adb shell monkey -f /sdcard/test.txt -v -v 1<br><em>脚本是用Moneky API编写的脚本,文件后缀理论不限一般为.txt,脚本需放在测试手机内</em></p>
-</blockquote>
-<h4 id="log保存"><a href="#log保存" class="headerlink" title="log保存"></a>log保存</h4><blockquote>
-<p>adb shell monkey 100 1&gt;d:\log.log 2&gt;d:\error.log<br><em>1标准流在log.log 文件中,2错误流在error.log中</em></p>
-</blockquote>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><blockquote>
-<blockquote>
-<p>adb shell monkey -p com.tal.kaoyan –pct-touch 40 –pct-motion 25 –pct-appswitch 10 –pct-rotation 5 -s 1666 –throttle 400 –ignore-crashes –ignore-timeouts -v -v 200<br><em>在考研APP里以触控25%手势40%启动10%旋转5%的概率和seed为1666为条件执行200次随机事件，并且每个事件隔0.4秒执行一次，在执行中遇到crash和权限问题都跳过继续执行之后的事件</em></p>
-</blockquote>
-</blockquote>
-
-          
+<h1 id="aapt"><a href="#aapt" class="headerlink" title="aapt"></a>aapt</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/测试学习笔记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
