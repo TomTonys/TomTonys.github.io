@@ -347,7 +347,7 @@
                 
               
 
-              <time title="Created: 2018-10-16 15:50:00 / Modified: 16:17:12" itemprop="dateCreated datePublished" datetime="2018-10-16T15:50:00+08:00">2018-10-16</time>
+              <time title="Created: 2018-10-16 15:50:00 / Modified: 16:43:46" itemprop="dateCreated datePublished" datetime="2018-10-16T15:50:00+08:00">2018-10-16</time>
             
 
             
@@ -386,50 +386,14 @@
 
       
         
-          
-            <h1 id="TouchAction"><a href="#TouchAction" class="headerlink" title="TouchAction"></a>TouchAction</h1><p><em>Touch Action包含一些列操作，比如按压、长按、点击、移动、暂停。由着些不同操作可以组成一套动作。使用TochAction需要先导入对应的模块</em><br><code>from appium.webdriver.common.touch_action import TouchAction</code></p>
-<ul>
-<li><h4 id="按压"><a href="#按压" class="headerlink" title="按压"></a>按压</h4><p><em>方法：press() 开始按压一个元素或坐标点（x,y）。通过手指按压手机屏幕的某个位置。 press也可以接收屏幕的坐标（x,y）。</em></p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">press(self, el=None, x=None, y=None)</span><br><span class="line">TouchAction(driver).press(x=0,y=300)</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><h4 id="长按"><a href="#长按" class="headerlink" title="长按"></a>长按</h4><p><em>方法：longPress() 开始按压一个元素或坐标点（x,y）。 相比press()方法，longPress()多了一个入参，既然长按，得有按的时间吧。duration以毫秒为单位。1000表示按一秒钟。其用法与press()方法相同。</em></p>
-<blockquote>
-<p><code>long_press(self, el=None, x=None, y=None, duration=1000)</code></p>
-</blockquote>
-</li>
-<li><h4 id="点击"><a href="#点击" class="headerlink" title="点击"></a>点击</h4><p><em>方法：tap() 对一个元素或控件执行点击操作。用法参考press()。</em></p>
-<blockquote>
-<p><code>tap(self, element=None, x=None, y=None, count=1)</code></p>
-</blockquote>
-</li>
-<li><h4 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h4><p>_方法：move_to() 将指针从上一个点移动到指定的元素或点。_</p>
-<blockquote>
-<p><code>move_to(self, el=None, x=None, y=None)</code></p>
-</blockquote>
-</li>
-<li><h4 id="暂停"><a href="#暂停" class="headerlink" title="暂停"></a>暂停</h4><p><em>方法：Wait(),暂停脚本的执行，单位为毫秒</em></p>
-<blockquote>
-<p><code>wait(self, ms=0)</code></p>
-</blockquote>
-</li>
-<li><h4 id="释放"><a href="#释放" class="headerlink" title="释放"></a>释放</h4><p><em>方法release() 结束的行动取消屏幕上的指针。</em></p>
-<blockquote>
-<p><code>release(self)</code></p>
-</blockquote>
-</li>
-<li><h4 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h4><p><em>perform() 执行的操作发送到服务器的命令操作</em></p>
-<blockquote>
-<p><code>perform(self)</code></p>
-</blockquote>
-</li>
-</ul>
-<h1 id="TouchAction实例-九宫格滑动操作"><a href="#TouchAction实例-九宫格滑动操作" class="headerlink" title="TouchAction实例-九宫格滑动操作"></a>TouchAction实例-九宫格滑动操作</h1><blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from appium import webdriver</span><br><span class="line">from appium.webdriver.common.touch_action import TouchAction</span><br><span class="line">from selenium.webdriver.support.ui import WebDriverWait</span><br><span class="line">from selenium.common.exceptions import NoSuchElementException</span><br><span class="line">from time import sleep</span><br><span class="line"></span><br><span class="line">desired_caps=&#123;&#125;</span><br><span class="line">desired_caps[&apos;platformName&apos;]=&apos;Android&apos;</span><br><span class="line">desired_caps[&apos;deviceName&apos;]=&apos;127.0.0.1:62025&apos;</span><br><span class="line">desired_caps[&apos;platforVersion&apos;]=&apos;5.1.1&apos;</span><br><span class="line"></span><br><span class="line">desired_caps[&apos;app&apos;]=r&apos;H:\测试学习\mymoney.apk&apos;</span><br><span class="line">desired_caps[&apos;appPackage&apos;]=&apos;com.mymoney&apos;</span><br><span class="line">desired_caps[&apos;appActivity&apos;]=&apos;com.mymoney.biz.splash.SplashScreenActivity&apos;</span><br><span class="line"></span><br><span class="line">driver=webdriver.Remote(&apos;http://localhost:4723/wd/hub&apos;,desired_caps)</span><br><span class="line">driver.implicitly_wait(5)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_size():</span><br><span class="line">    x=driver.get_window_size()[&apos;width&apos;]</span><br><span class="line">    y=driver.get_window_size()[&apos;height&apos;]</span><br><span class="line">    return x,y</span><br><span class="line"></span><br><span class="line">def swipeLeft():</span><br><span class="line">    l=get_size()</span><br><span class="line">    x1=int(l[0]*0.9)</span><br><span class="line">    y1=int(l[1]*0.5)</span><br><span class="line">    x2=int(l[0]*0.1)</span><br><span class="line">    driver.swipe(x1,y1,x2,y1,1000)</span><br><span class="line"></span><br><span class="line">def swipeUp():</span><br><span class="line">    l = get_size()</span><br><span class="line">    x1 = int(l[0] * 0.5)</span><br><span class="line">    y1 = int(l[1] * 0.95)</span><br><span class="line">    y2 = int(l[1] * 0.35)</span><br><span class="line">    driver.swipe(x1, y1, x1, y2, 1000)</span><br><span class="line"></span><br><span class="line">WebDriverWait(driver,6).until(lambda x:x.find_element_by_id(&apos;com.mymoney:id/next_btn&apos;))</span><br><span class="line">for i in range(2):</span><br><span class="line">    swipeLeft()</span><br><span class="line">    sleep(0.5)</span><br><span class="line"></span><br><span class="line">driver.find_element_by_id(&apos;com.mymoney:id/begin_btn&apos;).click()</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    closeBtn=driver.find_element_by_id(&apos;com.mymoney:id/close_iv&apos;)</span><br><span class="line">except NoSuchElementException:</span><br><span class="line">    pass</span><br><span class="line">else:</span><br><span class="line">    closeBtn.click()</span><br><span class="line"></span><br><span class="line">driver.find_element_by_id(&apos;com.mymoney:id/nav_setting_btn&apos;).click()</span><br><span class="line">WebDriverWait(driver,6).until(lambda x:x.find_element_by_id(&apos;com.mymoney:id/content_container_ly&apos;))</span><br><span class="line">swipeUp()</span><br><span class="line"></span><br><span class="line">driver.find_element_by_android_uiautomator(&apos;new UiSelector().text(&quot;高级&quot;)&apos;).click()</span><br><span class="line"></span><br><span class="line">driver.find_element_by_id(&apos;com.mymoney:id/password_protected_briv&apos;).click()</span><br><span class="line">driver.find_element_by_id(&apos;com.mymoney:id/lock_pattern_or_not_sriv&apos;).click()</span><br><span class="line"></span><br><span class="line">for i in range(2):</span><br><span class="line">    TouchAction(driver).press(x=218,y=298).wait(2000)\</span><br><span class="line">    .move_to(x=360,y=298).wait(1000)\</span><br><span class="line">    .move_to(x=510,y=440).wait(1000)\</span><br><span class="line">    .move_to(x=510,y=590).wait(1000)\</span><br><span class="line">    .release().perform()</span><br></pre></td></tr></table></figure>
-</blockquote>
-
-          
+          <h1 id="TouchAction"><a href="#TouchAction" class="headerlink" title="TouchAction"></a>TouchAction</h1><p><em>Touch Action包含一些列操作，比如按压、长按、点击、移动、暂停。由着些不同操作可以组成一套动作。使用TochAction需要先导入对应的模块</em><br><code>from appium.webdriver.common.touch_action import TouchAction</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/16/TouchAction/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
