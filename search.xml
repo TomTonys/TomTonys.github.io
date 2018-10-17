@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[滑动操作 TouchAction]]></title>
+    <url>%2F2018%2F10%2F16%2FTouchAction%2F</url>
+    <content type="text"><![CDATA[TouchActionTouch Action包含一些列操作，比如按压、长按、点击、移动、暂停。由着些不同操作可以组成一套动作。使用TochAction需要先导入对应的模块from appium.webdriver.common.touch_action import TouchAction 按压方法：press() 开始按压一个元素或坐标点（x,y）。通过手指按压手机屏幕的某个位置。 press也可以接收屏幕的坐标（x,y）。 12press(self, el=None, x=None, y=None)TouchAction(driver).press(x=0,y=300) 长按方法：longPress() 开始按压一个元素或坐标点（x,y）。 相比press()方法，longPress()多了一个入参，既然长按，得有按的时间吧。duration以毫秒为单位。1000表示按一秒钟。其用法与press()方法相同。 long_press(self, el=None, x=None, y=None, duration=1000) 点击方法：tap() 对一个元素或控件执行点击操作。用法参考press()。 tap(self, element=None, x=None, y=None, count=1) 移动_方法：move_to() 将指针从上一个点移动到指定的元素或点。_ move_to(self, el=None, x=None, y=None) 暂停方法：Wait(),暂停脚本的执行，单位为毫秒 wait(self, ms=0) 释放方法release() 结束的行动取消屏幕上的指针。 release(self) 执行perform() 执行的操作发送到服务器的命令操作 perform(self) TouchAction实例-九宫格滑动操作 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667from appium import webdriverfrom appium.webdriver.common.touch_action import TouchActionfrom selenium.webdriver.support.ui import WebDriverWaitfrom selenium.common.exceptions import NoSuchElementExceptionfrom time import sleepdesired_caps=&#123;&#125;desired_caps[&apos;platformName&apos;]=&apos;Android&apos;desired_caps[&apos;deviceName&apos;]=&apos;127.0.0.1:62025&apos;desired_caps[&apos;platforVersion&apos;]=&apos;5.1.1&apos;desired_caps[&apos;app&apos;]=r&apos;H:\测试学习\mymoney.apk&apos;desired_caps[&apos;appPackage&apos;]=&apos;com.mymoney&apos;desired_caps[&apos;appActivity&apos;]=&apos;com.mymoney.biz.splash.SplashScreenActivity&apos;driver=webdriver.Remote(&apos;http://localhost:4723/wd/hub&apos;,desired_caps)driver.implicitly_wait(5)def get_size(): x=driver.get_window_size()[&apos;width&apos;] y=driver.get_window_size()[&apos;height&apos;] return x,ydef swipeLeft(): l=get_size() x1=int(l[0]*0.9) y1=int(l[1]*0.5) x2=int(l[0]*0.1) driver.swipe(x1,y1,x2,y1,1000)def swipeUp(): l = get_size() x1 = int(l[0] * 0.5) y1 = int(l[1] * 0.95) y2 = int(l[1] * 0.35) driver.swipe(x1, y1, x1, y2, 1000)WebDriverWait(driver,6).until(lambda x:x.find_element_by_id(&apos;com.mymoney:id/next_btn&apos;))for i in range(2): swipeLeft() sleep(0.5)driver.find_element_by_id(&apos;com.mymoney:id/begin_btn&apos;).click()try: closeBtn=driver.find_element_by_id(&apos;com.mymoney:id/close_iv&apos;)except NoSuchElementException: passelse: closeBtn.click()driver.find_element_by_id(&apos;com.mymoney:id/nav_setting_btn&apos;).click()WebDriverWait(driver,6).until(lambda x:x.find_element_by_id(&apos;com.mymoney:id/content_container_ly&apos;))swipeUp()driver.find_element_by_android_uiautomator(&apos;new UiSelector().text(&quot;高级&quot;)&apos;).click()driver.find_element_by_id(&apos;com.mymoney:id/password_protected_briv&apos;).click()driver.find_element_by_id(&apos;com.mymoney:id/lock_pattern_or_not_sriv&apos;).click()for i in range(2): TouchAction(driver).press(x=218,y=298).wait(2000)\ .move_to(x=360,y=298).wait(1000)\ .move_to(x=510,y=440).wait(1000)\ .move_to(x=510,y=590).wait(1000)\ .release().perform()]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>appium</tag>
+        <tag>touchaction</tag>
+        <tag>滑动</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[滑动]]></title>
+    <url>%2F2018%2F10%2F14%2Fswipe%2F</url>
+    <content type="text"><![CDATA[swipe 滑动语法 driver.swipe(x1, y1, x2, y2, 1000) 由坐标(x1,y1)滑动到坐标(x2,y2)处,持续时间1秒 坐标获取技巧_可同过get_devices_size()得到荧幕宽高后,在分别乘以一个0.X的浮点数则可得到一坐标_ 1234x = driver.get_window_size()[&apos;width&apos;]y = driver.get_window_size()[&apos;height&apos;]x1 = int(x*0.9)y1 = int(y*0.5) 具体事例 123456789101112131415161718from appium_test.capability import driverimport timedef get_devices_size(): x = driver.get_window_size()[&apos;width&apos;] y = driver.get_window_size()[&apos;height&apos;] return x, ydef swipeLeft(): l = get_devices_size() x1 = int(l[0]*0.9) x2 = int(l[0]*0.1) y1 = int(l[1]*0.5) driver.swipe(x1, y1, x2, y1, 1000)for i in range(2): swipeLeft() time.sleep(0.5) 由右向左滑动两次]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>appium</tag>
+        <tag>swipe</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[H5定位方法]]></title>
+    <url>%2F2018%2F10%2F14%2FH5%E5%AE%9A%E4%BD%8D%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[APP内嵌H5定位方法方法：定位app内元素时用appium定位方法定位,定位H5页面元素时用selenium定位方法定位.他们之间的切换用contexts切换 第一步 得到APP和H5的contexts值 12contexts = driver.contextsprint(contexts) 这里得到的第一个值为APP的contexts，第二个为selenium的contexts so 12context_appium = contexts[0]context_selenium = context[1] 第二步 appium和selenium之间的切换appium切换到selenium driver.switch_to.contexts(&#39;WEBVIEW_com.wondershare.drfone&#39;)或 driver.switch_to.contexts(context_selenium) selenium切换到appium driver.switch_to.context(&#39;NATIVE_APP&#39;)或 driver.switch_to.contexts(context_appium) 实例 1234567891011121314151617181920212223242526272829303132333435from appium import webdriverfrom selenium.webdriver.support.ui import WebDriverWaitimport timedesired_caps=&#123;&#125;desired_caps[&apos;platformName&apos;]=&apos;Android&apos;desired_caps[&apos;platformVersion&apos;]=&apos;5.1.1&apos;desired_caps[&apos;deviceName&apos;]=&apos;127.0.0.1:21503&apos;desired_caps[&apos;app&apos;]=r&apos;H:\测试学习\H5元素定位软件全家桶\dr.fone3.2.0.apk&apos;desired_caps[&apos;appPackage&apos;]=&apos;com.wondershare.drfone&apos;desired_caps[&apos;appActivity&apos;]=&apos;com.wondershare.drfone.ui.activity.WelcomeActivity&apos;driver=webdriver.Remote(&apos;http://localhost:4723/wd/hub&apos;,desired_caps)driver.implicitly_wait(8)time.sleep(5)driver.find_element_by_id(&apos;com.wondershare.drfone:id/btnBackup&apos;).click()WebDriverWait(driver,10).until(lambda x:x.find_element_by_id(&apos;com.wondershare.drfone:id/btnRecoverData&apos;))driver.find_element_by_id(&apos;com.wondershare.drfone:id/btnRecoverData&apos;).click()WebDriverWait(driver,10).until(lambda x:x.find_element_by_class_name(&apos;android.webkit.WebView&apos;))contexts=driver.contextsprint(contexts)context_selenium = contexts[1]context_appium = contexts[0]driver.switch_to.context(context_selenium)driver.switch_to.context(&apos;WEBVIEW_com.wondershare.drfone&apos;)driver.find_element_by_id(&apos;email&apos;).send_keys(&apos;shuqing2018@163.com&apos;)driver.find_element_by_class_name(&apos;btn_send&apos;).click()driver.switch_to.context(context_appium)driver.switch_to.context(&apos;NATIVE_APP&apos;)driver.find_element_by_class_name(&apos;android.widget.ImageButton&apos;).click()]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>h5定位</tag>
+        <tag>contexts</tag>
+        <tag>appium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux计划任务_crontab]]></title>
+    <url>%2F2018%2F10%2F13%2FLinux%E8%AE%A1%E5%88%92_crontab%2F</url>
+    <content type="text"><![CDATA[crontab常用命令创建计划任务 crontab -e 查看已创建的计划任务 crontab -l 删除计划任务 crontab -r 计划格式 * * * * * command 分 时 日 月 周 命令星号（）：代表所有可能的值，例如month字段如果是星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。同时正斜线可以和星号一起使用，例如/10，如果用在minute字段，表示每十分钟执行一次。 例子 0 12,17,20 * * * python2 /home/test/test.py &gt;&gt; /home/test/test.log 每天12/17/20点整执行Python文件test.py,并将输出结果保存到test.log文件中]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>计划任务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试学习笔记]]></title>
+    <url>%2F2018%2F10%2F12%2F%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[ADB截图 adb shell screencap /sdcard/wangdoujia.png 安装apk adb install xxx.apk 删除APP adb uninstall xxxxxx为apk的包名 显示手机所有的APP包名 adb shell pm list package aapt查看app的package aapt dump badging H:\测试学习\wandoujia.apk | findstr “package” 查看app的启动页面的activity aapt dump badging H:\测试学习\wandoujia.apk | findstr “launchable-activity” Moneky在手机上执行100个伪随机事件 adb shell monkey 100 每次随机事件间隔3秒并显示日志 adb shell monkey -v –throttle 3000 10 自定义事件概率touch概率为30% adb shell monkey -v –pct-touch 30 200_触控touch,启动事件—appswtich,手势—motion,旋转—rotation,轨迹—trackball,基本导航—nav,主要导航-majornav,系统按键-syskeys 设定多个事件的概率 adb shell monkey -v –pct-touch 30 –pct-motion 40 200 在指定的地方执行事件在指定的app里进行随机事件 adb shell monkey -p 包名 100 在指定的activity内进行随机事件 adb shell monkey -c activity 100 遇到特殊事件处理遇到crash后继续事件 adb shell monkey –ignore-crashes 遇到超时时继续事件 adb shell monkey –ignore-timouts 遇到权限不足时继续事件 adb shell monkey –ignore-security-exceptions Moneky API启动应用的activity LaunchActivity(pkg_name,cl_name)参数：包名，启动的activity 模拟一次点击事件 Tap(x,y,tapDuration)参数：x,y坐标。tap持续时间(省) 设置睡眠时间 UserWait(sleepTime) 按键 DispatchPress(keyName) 输入字符串 DispatchString(input) 打开关闭软键盘 DispatchFlip(true/false) 长按事件 PressAndHold(x,y,pressDuration) 缩放手势 Drag(xStart,yStart,xend,yend,x2Start,y2Start,x2end,y2end,stepCount) 运行1次脚本 adb shell monkey -f /sdcard/test.txt -v -v 1脚本是用Moneky API编写的脚本,文件后缀理论不限一般为.txt,脚本需放在测试手机内 log保存 adb shell monkey 100 1&gt;d:\log.log 2&gt;d:\error.log1标准流在log.log 文件中,2错误流在error.log中 实例 adb shell monkey -p com.tal.kaoyan –pct-touch 40 –pct-motion 25 –pct-appswitch 10 –pct-rotation 5 -s 1666 –throttle 400 –ignore-crashes –ignore-timeouts -v -v 200在考研APP里以触控25%手势40%启动10%旋转5%的概率和seed为1666为条件执行200次随机事件，并且每个事件隔0.4秒执行一次，在执行中遇到crash和权限问题都跳过继续执行之后的事件]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>adb</tag>
+        <tag>aapt</tag>
+        <tag>Moneky</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[架设简单的服务器]]></title>
+    <url>%2F2018%2F10%2F12%2F%E6%9E%B6%E8%AE%BE%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[在虚拟机中的Centos 7上架设搭建简单的网站1. 安装Apache服务 1yum install -y httpd 2. 启动Apache服务 1systemctl start httpd.service 3. 在“/var/www/”下创建web文件夹 1mkdir /var/www/tony 4. 更改配置文件，设置基于域名的虚拟主机 123456vim /etc/httpd/conf/httpd.conf NameVirtualHost 192.168.31.41:80 _ip地址为虚拟机地址_&lt;VirtualHost 192.168.31.41:80&gt;DocumentRoot /var/www/tony _目标指向第三步创建的文件夹_ServerName tony.text.com _网址，如果你有的话_&lt;/VirtualHost&gt; 5. 重新开启apache服务 1systemctl restart httpd 6. 将服务设置为开机自启 1systemctl enable httpd]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>centos</tag>
+      </tags>
+  </entry>
+</search>
