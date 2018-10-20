@@ -103,6 +103,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[浏览器兼容性测试简单介绍]]></title>
+    <url>%2F2018%2F10%2F12%2F%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%8B%E8%AF%95%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[=== 浏览器兼容性问题又被称为网页兼容性或网站兼容性问题，指网页在各种浏览器上的显示效果可能不一致而产生浏览器和网页间的兼容问题。在网站的设计和制作中，做好浏览器兼容，才能够让网站在不同的浏览器下都正常显示。而对于浏览器软件的开发和设计，浏览器对标准的更好兼容能够给用户更好的使用体验。 --来自百度百科=== 什么情况下做兼容性测试用的比较少的页面(比如后台)是不需要兼容性测试的，只有大量用户用的B/S网页才需要做兼容性测试一般用什么浏览器一般必须的有：360 IE Firefox Chroem Safari，其他看公司具体要求浏览器版本一般用最新或自己电脑上的版本就可以了检查内容主要检查：功能、UI辅助工具1. https://app.crossbrowsertesting.com，国外的一个兼容性测试网站，可以模拟主流平台和浏览器，有试用时间 2. Turbo 官网：https://turbo.net/browsers，是一个浏览器沙盒，内置有主流的浏览器，就不用在自己的电脑上安装各种浏览器。(缺点：程序启动速度慢)]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>兼容性</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[架设简单的服务器]]></title>
     <url>%2F2018%2F10%2F12%2F%E6%9E%B6%E8%AE%BE%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E7%AB%99%E6%9C%8D%E5%8A%A1%E5%99%A8%2F</url>
     <content type="text"><![CDATA[在虚拟机中的Centos 7上架设搭建简单的网站1. 安装Apache服务 1yum install -y httpd 2. 启动Apache服务 1systemctl start httpd.service 3. 在“/var/www/”下创建web文件夹 1mkdir /var/www/tony 4. 更改配置文件，设置基于域名的虚拟主机 123456vim /etc/httpd/conf/httpd.conf NameVirtualHost 192.168.31.41:80 _ip地址为虚拟机地址_&lt;VirtualHost 192.168.31.41:80&gt;DocumentRoot /var/www/tony _目标指向第三步创建的文件夹_ServerName tony.text.com _网址，如果你有的话_&lt;/VirtualHost&gt; 5. 重新开启apache服务 1systemctl restart httpd 6. 将服务设置为开机自启 1systemctl enable httpd]]></content>
