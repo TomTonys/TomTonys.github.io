@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="TomTonys Blog">
 <meta property="og:description" content="swipe 滑动语法 driver.swipe(x1, y1, x2, y2, 1000)  由坐标(x1,y1)滑动到坐标(x2,y2)处,持续时间1秒">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T01:43:44.103Z">
+<meta property="og:updated_time" content="2018-10-21T14:09:24.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="滑动">
 <meta name="twitter:description" content="swipe 滑动语法 driver.swipe(x1, y1, x2, y2, 1000)  由坐标(x1,y1)滑动到坐标(x2,y2)处,持续时间1秒">
@@ -412,7 +412,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-17 09:43:44" itemprop="dateModified" datetime="2018-10-17T09:43:44+08:00">2018-10-17</time>
+                <time title="Modified: 2018-10-21 22:09:24" itemprop="dateModified" datetime="2018-10-21T22:09:24+08:00">2018-10-21</time>
               
             
           </span>
@@ -490,12 +490,12 @@
 <p><em>由坐标(x1,y1)滑动到坐标(x2,y2)处,持续时间1秒</em><br><a id="more"></a></p>
 <h4 id="坐标获取技巧"><a href="#坐标获取技巧" class="headerlink" title="坐标获取技巧"></a>坐标获取技巧</h4><p>_可同过get_devices_size()得到荧幕宽高后,在分别乘以一个0.X的浮点数则可得到一坐标_</p>
 <blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = driver.get_window_size()[&apos;width&apos;]</span><br><span class="line">y = driver.get_window_size()[&apos;height&apos;]</span><br><span class="line">x1 = int(x*0.9)</span><br><span class="line">y1 = int(y*0.5)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = driver.get_window_size()[<span class="string">'width'</span>]</span><br><span class="line">y = driver.get_window_size()[<span class="string">'height'</span>]</span><br><span class="line">x1 = int(x*<span class="number">0.9</span>)</span><br><span class="line">y1 = int(y*<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h4 id="具体事例"><a href="#具体事例" class="headerlink" title="具体事例"></a>具体事例</h4><blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from appium_test.capability import driver</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def get_devices_size():</span><br><span class="line">    x = driver.get_window_size()[&apos;width&apos;]</span><br><span class="line">    y = driver.get_window_size()[&apos;height&apos;]</span><br><span class="line">    return x, y</span><br><span class="line"></span><br><span class="line">def swipeLeft():</span><br><span class="line">    l = get_devices_size()</span><br><span class="line">    x1 = int(l[0]*0.9)</span><br><span class="line">    x2 = int(l[0]*0.1)</span><br><span class="line">    y1 = int(l[1]*0.5)</span><br><span class="line">    driver.swipe(x1, y1, x2, y1, 1000)</span><br><span class="line"></span><br><span class="line">for i in range(2):</span><br><span class="line">    swipeLeft()</span><br><span class="line">    time.sleep(0.5)</span><br></pre></td></tr></table></figure>
+<h4 id="具体事例"><a href="#具体事例" class="headerlink" title="具体事例"></a>具体事例</h4><p><em>由右向左滑动两次</em></p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> appium_test.capability <span class="keyword">import</span> driver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_devices_size</span><span class="params">()</span>:</span></span><br><span class="line">    x = driver.get_window_size()[<span class="string">'width'</span>]</span><br><span class="line">    y = driver.get_window_size()[<span class="string">'height'</span>]</span><br><span class="line">    <span class="keyword">return</span> x, y</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swipeLeft</span><span class="params">()</span>:</span></span><br><span class="line">    l = get_devices_size()</span><br><span class="line">    x1 = int(l[<span class="number">0</span>]*<span class="number">0.9</span>)</span><br><span class="line">    x2 = int(l[<span class="number">0</span>]*<span class="number">0.1</span>)</span><br><span class="line">    y1 = int(l[<span class="number">1</span>]*<span class="number">0.5</span>)</span><br><span class="line">    driver.swipe(x1, y1, x2, y1, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">    swipeLeft()</span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p><em>由右向左滑动两次</em></p>
 
       
     </div>
