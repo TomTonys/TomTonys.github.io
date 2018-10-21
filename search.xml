@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[多点触控 MultiAction]]></title>
+    <url>%2F2018%2F10%2F21%2FMultiAction%2F</url>
+    <content type="text"><![CDATA[MultiActionMultiAction是多点触控的类，可以模拟用户多点操作。主要包含add()和perform()两个方法，MultiAction可以结合前面所学的ActionTouch可以模拟出用户的多个手指滑动的效果。 12from appium.webdriver.common.multi_action import MultiActionfrom appium.webdriver.common.touch_action import TouchAction 加载:方法add(self,*touch_actions)将TouchAction对象添加到MultiAction中，稍后执行参数:touch_action 一个后多个TouchAction对象，描述一个手指要执行的动作链用法: 12345a1 = TouchAction(driver)a1.press(x,y).move_to(x,y).release()a2 = TouchAction(driver)a2.press(x,y).move_to(x,y).release()MultiAction(driver).add(a1, a2) 执行perform(self) 执行存储在对象中的操作。用法: 12345a1 = TouchAction(driver)a1.press(x,y).move_to(x,y).release()a2 = TouchAction(driver)a2.press(x,y).move_to(x,y).release()MultiAction(driver).add(a1, a2).perform() 手机缩放图示理解 实例在百度APP中执行放大两次再缩小两次1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556from appium import webdriverfrom appium.webdriver.common.multi_action import MultiActionfrom appium.webdriver.common.touch_action import TouchActiondesired_caps = &#123;&#125;desired_caps['platformName']='Android'desired_caps['deviceName']='127.0.0.1:62026'desired_caps['platforVersion']='5.1.1'desired_caps['app']=r'H:\测试学习\com.baidu.BaiduMap.apk'desired_caps['appPackage']='com.baidu.BaiduMap'desired_caps['appActivity']='com.baidu.baidumaps.WelcomeScreen'desired_caps['noReset']='False'driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)driver.implicitly_wait(10)driver.find_element_by_id('com.baidu.BaiduMap:id/dj2').click()driver.find_element_by_id('com.baidu.BaiduMap:id/byo').click()def get_size(): x = driver.get_window_size()['width'] y = driver.get_window_size()['height'] return x, ydef pinch(): size = get_size() x = size[0] y = size[1] action1 = TouchAction(driver) action2 = TouchAction(driver) pinch_action = MultiAction(driver) action1.press(x = x * 0.2, y = y * 0.2).wait(1000).move_to(x = x * 0.4, y = y*0.4).wait(1000).release() action2.press(x = x * 0.8, y = y * 0.8).wait(1000).move_to(x = x * 0.6, y = y*0.6).wait(1000).release() print('pinch...') pinch_action.add(action1, action2) pinch_action.perform()def zoom(): size = get_size() x = size[0] y = size[1] action1 = TouchAction(driver) action2 = TouchAction(driver) zoom_action = MultiAction(driver) action1.press(x=x * 0.4, y=y * 0.4).wait(1000).move_to(x=x * 0.2, y=y * 0.2).wait(1000).release() action2.press(x=x * 0.6, y=y * 0.6).wait(1000).move_to(x=x * 0.8, y=y * 0.8).wait(1000).release() print('zoom...') zoom_action.add(action1, action2) zoom_action.perform()if __name__ == '__main__': for i in range(2): pinch() for i in range(2): zoom()]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+        <tag>appium</tag>
+        <tag>触控</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[浏览器兼容性测试简单介绍]]></title>
     <url>%2F2018%2F10%2F20%2F%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%8B%E8%AF%95%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[浏览器兼容性问题又被称为网页兼容性或网站兼容性问题，指网页在各种浏览器上的显示效果可能不一致而产生浏览器和网页间的兼容问题。在网站的设计和制作中，做好浏览器兼容，才能够让网站在不同的浏览器下都正常显示。而对于浏览器软件的开发和设计，浏览器对标准的更好兼容能够给用户更好的使用体验。 --来自百度百科 什么情况下做兼容性测试用的比较少的页面(比如后台)是不需要兼容性测试的，只有大量用户用的B/S网页才需要做兼容性测试一般用什么浏览器一般必须的有：360 IE Firefox Chroem Safari，其他看公司具体要求浏览器版本一般用最新或自己电脑上的版本就可以了检查内容主要检查：功能、UI辅助工具1. https://app.crossbrowsertesting.com, 国外的一个兼容性测试网站，可以模拟主流平台和浏览器，有试用时间 2. Turbo 官网：https://turbo.net/browsers, 是一个浏览器沙盒，内置有主流的浏览器，就不用在自己的电脑上安装各种浏览器。(缺点：程序启动速度慢)]]></content>
@@ -83,9 +96,9 @@
       </categories>
       <tags>
         <tag>测试</tag>
+        <tag>appium</tag>
         <tag>h5定位</tag>
         <tag>contexts</tag>
-        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
