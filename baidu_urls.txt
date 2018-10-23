@@ -1,11 +1,1 @@
 https://www.tomtony.top/2018/10/21/MultiAction/
-https://www.tomtony.top/2018/10/20/兼容性测试介绍/
-https://www.tomtony.top/2018/10/18/bug等级分划/
-https://www.tomtony.top/2018/10/17/TestCase/
-https://www.tomtony.top/2018/10/17/TestCaseDesignMethod/
-https://www.tomtony.top/2018/10/16/TouchAction/
-https://www.tomtony.top/2018/10/14/swipe/
-https://www.tomtony.top/2018/10/14/H5定位方法/
-https://www.tomtony.top/2018/10/13/Linux计划_crontab/
-https://www.tomtony.top/2018/10/12/测试学习笔记/
-https://www.tomtony.top/2018/10/12/架设简单的网站服务器/
