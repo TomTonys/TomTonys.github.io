@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tomtony.top/about/index.html</loc>
+    
+    <lastmod>2018-10-30T03:20:29.790Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.tomtony.top/2018/10/26/Python%E5%B0%86%E5%9B%BE%E5%83%8F%E8%BD%AC%E5%8C%96%E4%B8%BAasci/</loc>
     
     <lastmod>2018-10-26T09:16:31.010Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>https://www.tomtony.top/categories/index.html</loc>
     
     <lastmod>2018-10-17T01:37:02.831Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.tomtony.top/about/index.html</loc>
-    
-    <lastmod>2018-10-12T12:33:39.165Z</lastmod>
     
   </url>
   
