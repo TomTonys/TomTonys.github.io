@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tomtony.top/tags/index.html</loc>
+    
+    <lastmod>2018-10-30T12:56:19.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.tomtony.top/about/index.html</loc>
     
-    <lastmod>2018-10-30T03:20:29.790Z</lastmod>
+    <lastmod>2018-10-30T12:56:05.252Z</lastmod>
     
   </url>
   
@@ -124,13 +131,6 @@
     <loc>https://www.tomtony.top/archives/index.html</loc>
     
     <lastmod>2018-10-12T12:28:59.766Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.tomtony.top/tags/index.html</loc>
-    
-    <lastmod>2018-10-12T12:20:49.867Z</lastmod>
     
   </url>
   
