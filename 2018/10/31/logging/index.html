@@ -52,7 +52,8 @@
 <meta property="og:description" content="logging日志作用不管是在项目开发还是测试过程中，项目运行一旦出现问题日志信息就非常重要了。日志是定位问题的重要手段，就像侦探人员要根据现场留下的线索来推断案情。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s1.ax1x.com/2018/10/31/iWpu6I.md.jpg">
-<meta property="og:updated_time" content="2018-10-31T13:46:27.407Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/31/iWpUcn.md.jpg">
+<meta property="og:updated_time" content="2018-10-31T14:17:37.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志收集-logging">
 <meta name="twitter:description" content="logging日志作用不管是在项目开发还是测试过程中，项目运行一旦出现问题日志信息就非常重要了。日志是定位问题的重要手段，就像侦探人员要根据现场留下的线索来推断案情。">
@@ -198,7 +199,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
                 <span class="post-meta-item-text">Posted on</span>
-              <time title="Created: 2018-10-31 17:31:00 / Modified: 21:46:27" itemprop="dateCreated datePublished" datetime="2018-10-31T17:31:00+08:00">2018-10-31</time>
+              <time title="Created: 2018-10-31 17:31:00 / Modified: 22:17:37" itemprop="dateCreated datePublished" datetime="2018-10-31T17:31:00+08:00">2018-10-31</time>
           </span>
             <span class="post-category" >
               <span class="post-meta-divider">|</span>
@@ -234,7 +235,7 @@
 <h5 id="basicConfig-kwargs-为日志记录系统做基本配置"><a href="#basicConfig-kwargs-为日志记录系统做基本配置" class="headerlink" title="basicConfig(**kwargs) 为日志记录系统做基本配置"></a>basicConfig(**kwargs) 为日志记录系统做基本配置</h5><h5 id="部分参数"><a href="#部分参数" class="headerlink" title="部分参数"></a>部分参数</h5><ul>
 <li><h6 id="filename-指定日志文件名称"><a href="#filename-指定日志文件名称" class="headerlink" title="filename 指定日志文件名称"></a>filename 指定日志文件名称</h6></li>
 <li><h6 id="filemode-指定打开文件的模式，如果指定了filename（如果文件模式未指定，则默认为’a）"><a href="#filemode-指定打开文件的模式，如果指定了filename（如果文件模式未指定，则默认为’a）" class="headerlink" title="filemode 指定打开文件的模式，如果指定了filename（如果文件模式未指定，则默认为’a）"></a>filemode 指定打开文件的模式，如果指定了filename（如果文件模式未指定，则默认为’a）</h6></li>
-<li><h6 id="format-为处理程序使用指定的格式字符串。"><a href="#format-为处理程序使用指定的格式字符串。" class="headerlink" title="format 为处理程序使用指定的格式字符串。"></a>format 为处理程序使用指定的格式字符串。</h6><figure><table><thead><tr><th>格式</th><th>描述</th></tr></thead><tbody><tr><td>%(levelno)s</td><td>打印日志级别的数值</td></tr><tr><td>%(levelname)s</td><td>打印日志级别名称</td></tr><tr><td>%(pathname)s</td><td>打印当前执行程序的路径</td></tr><tr><td>%(filename)s</td><td>打印当前执行程序名称</td></tr><tr><td>%(funcName)s</td><td>打印日志的当前函数</td></tr><tr><td>%(lineno)d</td><td>打印日志的当前行号</td></tr><tr><td>%(asctime)s</td><td>打印日志的时间</td></tr><tr><td>%(thread)d</td><td>打印线程id</td></tr><tr><td>%(threadName)s</td><td>打印线程名称</td></tr><tr><td>%(process)d</td><td>打印进程ID</td></tr><tr><td>%(message)s</td><td>打印日志信息</td></tr></tbody></table></figure></li>
+<li><h6 id="format-为处理程序使用指定的格式字符串。"><a href="#format-为处理程序使用指定的格式字符串。" class="headerlink" title="format 为处理程序使用指定的格式字符串。"></a>format 为处理程序使用指定的格式字符串。</h6><img src="https://s1.ax1x.com/2018/10/31/iWpUcn.md.jpg" alt="iWpUcn.md.jpg"></li>
 <li><h6 id="level-将根记录器级别设置为指定级别。-仅会显示指定级别以及比它更严重的级别。如level-logging-ERROR，则仅会显示ERROR和CRITICAL级别的日志"><a href="#level-将根记录器级别设置为指定级别。-仅会显示指定级别以及比它更严重的级别。如level-logging-ERROR，则仅会显示ERROR和CRITICAL级别的日志" class="headerlink" title="level 将根记录器级别设置为指定级别。(仅会显示指定级别以及比它更严重的级别。如level=logging.ERROR，则仅会显示ERROR和CRITICAL级别的日志)"></a>level 将根记录器级别设置为指定级别。(仅会显示指定级别以及比它更严重的级别。如level=logging.ERROR，则仅会显示ERROR和CRITICAL级别的日志)</h6><h5 id="事例用法"><a href="#事例用法" class="headerlink" title="事例用法"></a>事例用法</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.basicConfig(level=logging.DEBUG,</span><br><span class="line">        filename=<span class="string">'runlog.log'</span>,</span><br><span class="line">        format=<span class="string">'%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'</span>,</span><br><span class="line">        filemode=<span class="string">'a'</span>)</span><br><span class="line"></span><br><span class="line">logging.debug(<span class="string">'debug info'</span>)</span><br><span class="line">logging.info(<span class="string">'info inof'</span>)</span><br><span class="line">logging.warning(<span class="string">'warning info'</span>)</span><br><span class="line">logging.error(<span class="string">'error info'</span>)</span><br><span class="line">logging.critical(<span class="string">'critical info'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
