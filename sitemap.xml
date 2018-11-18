@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.tomtony.top/tags/index.html</loc>
+    
+    <lastmod>2018-11-18T13:43:13.014Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.tomtony.top/2018/11/18/python_error_info/</loc>
     
     <lastmod>2018-11-18T13:17:15.233Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://www.tomtony.top/2018/10/31/logging/</loc>
     
     <lastmod>2018-10-31T14:17:37.097Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.tomtony.top/tags/index.html</loc>
-    
-    <lastmod>2018-10-30T12:56:19.732Z</lastmod>
     
   </url>
   
