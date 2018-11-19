@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.tomtony.top/"/>
-  <updated>2018-11-19T07:54:02.062Z</updated>
+  <updated>2018-11-19T08:10:51.039Z</updated>
   <id>https://www.tomtony.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用键盘操作</title>
+    <link href="https://www.tomtony.top/2018/11/19/WebDriver_Keys/"/>
+    <id>https://www.tomtony.top/2018/11/19/WebDriver_Keys/</id>
+    <published>2018-11-19T08:07:00.000Z</published>
+    <updated>2018-11-19T08:10:51.039Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="常用的键盘操作"><a href="#常用的键盘操作" class="headerlink" title="常用的键盘操作"></a>常用的键盘操作</h1><table><thead><tr><th style="text-align:left">代码</th><th style="text-align:left">键盘</th></tr></thead><tbody><tr><td style="text-align:left">send_keys(Keys.BACK_SPACE)</td><td style="text-align:left">删除键(BackSpace)</td></tr><tr><td style="text-align:left">send_keys(Keys.SPACE)</td><td style="text-align:left">空格键(Space)</td></tr><tr><td style="text-align:left">send_keys(Keys.TAP)</td><td style="text-align:left">制表键(Tab)</td></tr><tr><td style="text-align:left">send_keys(Keys.ESCAPE)</td><td style="text-align:left">回退键(Esc)</td></tr><tr><td style="text-align:left">send_keys(Keys.ENTER)</td><td style="text-align:left">回车键(Enter)</td></tr><tr><td style="text-align:left">send_keys(Keys.CONTROL,’a’)</td><td style="text-align:left">全选(Ctrl+A)</td></tr><tr><td style="text-align:left">send_keys(Keys.CONTROL,’c’)</td><td style="text-align:left">复制(Ctrl+C)</td></tr><tr><td style="text-align:left">send_keys(Keys.CONTROL,’x’)</td><td style="text-align:left">剪切(Ctrl+X)</td></tr><tr><td style="text-align:left">send_keys(Keys.CONTROL,’v’)</td><td style="text-align:left">粘贴(Ctrl+V)</td></tr><tr><td style="text-align:left">send_keys(Keys.F1)</td><td style="text-align:left">键盘F1</td></tr><tr><td style="text-align:left">…</td><td style="text-align:left">…</td></tr><tr><td style="text-align:left">send_keys(Keys.F12)</td><td style="text-align:left">键盘F12</td></tr></tbody></table><h6 id="注：使用Keys前要先导入Keys类"><a href="#注：使用Keys前要先导入Keys类" class="headerlink" title="注：使用Keys前要先导入Keys类"></a>注：使用Keys前要先导入Keys类</h6><p><code>from selenium.webdriver.common.keys import Keys</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;常用的键盘操作&quot;&gt;&lt;a href=&quot;#常用的键盘操作&quot; class=&quot;headerlink&quot; title=&quot;常用的键盘操作&quot;&gt;&lt;/a&gt;常用的键盘操作&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;代码&lt;/
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.tomtony.top/categories/Python/"/>
+    
+      <category term="学习笔记" scheme="https://www.tomtony.top/categories/Python/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
+    
+      <category term="Selenium" scheme="https://www.tomtony.top/tags/Selenium/"/>
+    
+  </entry>
   
   <entry>
     <title>Selenium元素定位</title>
@@ -82,9 +114,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="PageObject" scheme="https://www.tomtony.top/tags/PageObject/"/>
     
@@ -158,9 +190,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="logging" scheme="https://www.tomtony.top/tags/logging/"/>
     
@@ -237,9 +269,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="触控" scheme="https://www.tomtony.top/tags/%E8%A7%A6%E6%8E%A7/"/>
     
@@ -389,9 +421,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="swipe" scheme="https://www.tomtony.top/tags/swipe/"/>
     
@@ -415,13 +447,13 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="h5定位" scheme="https://www.tomtony.top/tags/h5%E5%AE%9A%E4%BD%8D/"/>
     
       <category term="contexts" scheme="https://www.tomtony.top/tags/contexts/"/>
-    
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
   </entry>
   
