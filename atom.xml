@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.tomtony.top/"/>
-  <updated>2018-11-18T13:17:15.233Z</updated>
+  <updated>2018-11-19T07:49:44.687Z</updated>
   <id>https://www.tomtony.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Selenium元素定位</title>
+    <link href="https://www.tomtony.top/2018/11/19/find_element/"/>
+    <id>https://www.tomtony.top/2018/11/19/find_element/</id>
+    <published>2018-11-19T07:25:00.000Z</published>
+    <updated>2018-11-19T07:49:44.687Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="id定位"><a href="#id定位" class="headerlink" title="id定位"></a>id定位</h2><h3 id="HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下"><a href="#HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下" class="headerlink" title="HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下"></a>HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下</h3><a id="more"></a><p><code>find_element_by_id(&#39;kw&#39;)</code></p><h2 id="name定位"><a href="#name定位" class="headerlink" title="name定位"></a>name定位</h2><h3 id="HTML规定name来指定元素的名称，因此它的作用更像是人的姓名。name的属性值，在当前页面中可以不唯一。用法"><a href="#HTML规定name来指定元素的名称，因此它的作用更像是人的姓名。name的属性值，在当前页面中可以不唯一。用法" class="headerlink" title="HTML规定name来指定元素的名称，因此它的作用更像是人的姓名。name的属性值，在当前页面中可以不唯一。用法"></a>HTML规定name来指定元素的名称，因此它的作用更像是人的姓名。name的属性值，在当前页面中可以不唯一。用法</h3><p><code>find_element_by_name(&#39;name&#39;)</code></p><h2 id="class定位"><a href="#class定位" class="headerlink" title="class定位"></a>class定位</h2><h3 id="HTML规定class来指定元素的类名。其用法与id、name类似，下面实例通过class属性定位。"><a href="#HTML规定class来指定元素的类名。其用法与id、name类似，下面实例通过class属性定位。" class="headerlink" title="HTML规定class来指定元素的类名。其用法与id、name类似，下面实例通过class属性定位。"></a>HTML规定class来指定元素的类名。其用法与id、name类似，下面实例通过class属性定位。</h3><p><code>find_element_by_class_name(&#39;s_ipt&#39;)</code></p><h2 id="tag定位"><a href="#tag定位" class="headerlink" title="tag定位"></a>tag定位</h2><h3 id="HTML的本质就是通过tag来定义实现不同的功能，每一个元素本质上也是一个tag。因为一个tag往往定位一类功能，所以通过tag识别某个元素的概率很低。用法"><a href="#HTML的本质就是通过tag来定义实现不同的功能，每一个元素本质上也是一个tag。因为一个tag往往定位一类功能，所以通过tag识别某个元素的概率很低。用法" class="headerlink" title="HTML的本质就是通过tag来定义实现不同的功能，每一个元素本质上也是一个tag。因为一个tag往往定位一类功能，所以通过tag识别某个元素的概率很低。用法"></a>HTML的本质就是通过tag来定义实现不同的功能，每一个元素本质上也是一个tag。因为一个tag往往定位一类功能，所以通过tag识别某个元素的概率很低。用法</h3><p><code>find_element_by_tag_name(&#39;input&#39;)</code></p><h2 id="link定位"><a href="#link定位" class="headerlink" title="link定位"></a>link定位</h2><h3 id="link定位与前面介绍的几种定位方法有所不同，它专门用来定位文本超链接。用法"><a href="#link定位与前面介绍的几种定位方法有所不同，它专门用来定位文本超链接。用法" class="headerlink" title="link定位与前面介绍的几种定位方法有所不同，它专门用来定位文本超链接。用法"></a>link定位与前面介绍的几种定位方法有所不同，它专门用来定位文本超链接。用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a class=&quot;mnav&quot; name=&quot;tg_trnews&quot; href=&quot;http://news.baidu.com&quot;&gt;新闻&lt;/a&gt;  # 链接事例</span><br><span class="line"></span><br><span class="line">find_element_by_link_text(&apos;新闻&apos;)  # 用法事例</span><br></pre></td></tr></table></figure><h2 id="partial-link定位"><a href="#partial-link定位" class="headerlink" title="partial link定位"></a>partial link定位</h2><h3 id="partial-link定位是对link定位的一种补充，有些文本链接会比较长，这个时候我们可以取文本链接的一部分定位，只要这一部分信息可以唯一地标识这个链接"><a href="#partial-link定位是对link定位的一种补充，有些文本链接会比较长，这个时候我们可以取文本链接的一部分定位，只要这一部分信息可以唯一地标识这个链接" class="headerlink" title="partial link定位是对link定位的一种补充，有些文本链接会比较长，这个时候我们可以取文本链接的一部分定位，只要这一部分信息可以唯一地标识这个链接"></a>partial link定位是对link定位的一种补充，有些文本链接会比较长，这个时候我们可以取文本链接的一部分定位，只要这一部分信息可以唯一地标识这个链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a class=&quot;mnav&quot; name=&quot;tg_trnews&quot; href=&quot;#&quot;&gt;这是一个超级长的文件链接&lt;/a&gt;  # 链接事例</span><br><span class="line"></span><br><span class="line">find_element_by_partial_link_text(&apos;这是一个超级长的&apos;)  # 用法事例</span><br></pre></td></tr></table></figure><h2 id="XPath定位"><a href="#XPath定位" class="headerlink" title="XPath定位"></a>XPath定位</h2><h3 id="XPath是一种在XML文档中定位元素的语言。因为HTML可以看作XML的一种实现，所以selenium用户可以使用这种强大的语言在Web应用中定位元素。XPath可以分为绝对路径定位和元素的属性值定位"><a href="#XPath是一种在XML文档中定位元素的语言。因为HTML可以看作XML的一种实现，所以selenium用户可以使用这种强大的语言在Web应用中定位元素。XPath可以分为绝对路径定位和元素的属性值定位" class="headerlink" title="XPath是一种在XML文档中定位元素的语言。因为HTML可以看作XML的一种实现，所以selenium用户可以使用这种强大的语言在Web应用中定位元素。XPath可以分为绝对路径定位和元素的属性值定位"></a>XPath是一种在XML文档中定位元素的语言。因为HTML可以看作XML的一种实现，所以selenium用户可以使用这种强大的语言在Web应用中定位元素。XPath可以分为绝对路径定位和元素的属性值定位</h3><h4 id="绝对路径定位"><a href="#绝对路径定位" class="headerlink" title="绝对路径定位"></a>绝对路径定位</h4><h5 id="绝对路径定位就是用绝对路径来定位元素"><a href="#绝对路径定位就是用绝对路径来定位元素" class="headerlink" title="绝对路径定位就是用绝对路径来定位元素"></a>绝对路径定位就是用绝对路径来定位元素</h5><p><code>find_element_by_xpath(&quot;/html/body/div/div[2]/div/from/span/input&quot;)</code></p><h4 id="元素属性定位"><a href="#元素属性定位" class="headerlink" title="元素属性定位"></a>元素属性定位</h4><h5 id="就是利用各个tag的属性值来进行定位-任何属性都可以，只要有唯一性就行"><a href="#就是利用各个tag的属性值来进行定位-任何属性都可以，只要有唯一性就行" class="headerlink" title="就是利用各个tag的属性值来进行定位(任何属性都可以，只要有唯一性就行)"></a>就是利用各个tag的属性值来进行定位(任何属性都可以，只要有唯一性就行)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find_element_by_xpath(&quot;//input[@id=&apos;kw&apos;]&quot;) # 一个id为‘kw’的input标签</span><br><span class="line">find_element_by_xpath(&quot;//*[@class=&apos;su&apos; and @id=&apos;su_id&apos;]&quot;) # class属性值为‘su’并且id值为‘su_id’的标签  * 表示所有标签  多属性值可and连接</span><br><span class="line">find_element_by_xpath(&quot;//div[@id=&apos;kw&apos;]/span/input&quot;) # 一个id为‘kw’的div标签下的span下的input  和其他标签结合使用</span><br></pre></td></tr></table></figure><h2 id="CSS定位"><a href="#CSS定位" class="headerlink" title="CSS定位"></a>CSS定位</h2><h3 id="CSS是一种语言，他用用来描述HTML和XML文档的表现。CSS使用选择器来为页面元素绑定属性。这些选择器可以被selenium用作另外的定位策略。CSS可以较为灵活地选择控件的任意属性，一般情况下定位速度要多xpath快，但学习难度比xpath要大。"><a href="#CSS是一种语言，他用用来描述HTML和XML文档的表现。CSS使用选择器来为页面元素绑定属性。这些选择器可以被selenium用作另外的定位策略。CSS可以较为灵活地选择控件的任意属性，一般情况下定位速度要多xpath快，但学习难度比xpath要大。" class="headerlink" title="CSS是一种语言，他用用来描述HTML和XML文档的表现。CSS使用选择器来为页面元素绑定属性。这些选择器可以被selenium用作另外的定位策略。CSS可以较为灵活地选择控件的任意属性，一般情况下定位速度要多xpath快，但学习难度比xpath要大。"></a>CSS是一种语言，他用用来描述HTML和XML文档的表现。CSS使用选择器来为页面元素绑定属性。这些选择器可以被selenium用作另外的定位策略。CSS可以较为灵活地选择控件的任意属性，一般情况下定位速度要多xpath快，但学习难度比xpath要大。</h3><table><thead><tr><th style="text-align:left">选择器</th><th style="text-align:left">列子</th><th style="text-align:left">描述</th></tr></thead><tbody><tr><td style="text-align:left">.class</td><td style="text-align:left">.intro</td><td style="text-align:left">class选择器，选择class=“intro”的所有元素</td></tr><tr><td style="text-align:left">#id</td><td style="text-align:left">#firstname</td><td style="text-align:left">id选择器，选择id=“firstname”的所有元素</td></tr><tr><td style="text-align:left">*</td><td style="text-align:left">*</td><td style="text-align:left">选择所有元素</td></tr><tr><td style="text-align:left">element</td><td style="text-align:left">p</td><td style="text-align:left">所有p元素</td></tr><tr><td style="text-align:left">element&gt;element</td><td style="text-align:left">div &gt; input</td><td style="text-align:left">选择父元素为div的所有input元素</td></tr><tr><td style="text-align:left">element + element</td><td style="text-align:left">div + input</td><td style="text-align:left">选择同一级中紧接在div元素之后的所有input元素(同级)</td></tr><tr><td style="text-align:left">[attribute=value]</td><td style="text-align:left">[target=_blank]</td><td style="text-align:left">选择target=”_blank”的所有元素</td></tr></tbody></table><h5 id="通过class属性定位"><a href="#通过class属性定位" class="headerlink" title="通过class属性定位"></a>通过class属性定位</h5><p><code>find_element_by_css_selector(&#39;.s_ipt&#39;)</code></p><h5 id="通过id属性定位"><a href="#通过id属性定位" class="headerlink" title="通过id属性定位"></a>通过id属性定位</h5><p><code>find_element_by_css_selector(&#39;#kw&#39;)</code></p><h5 id="通过tag标签名定位"><a href="#通过tag标签名定位" class="headerlink" title="通过tag标签名定位"></a>通过tag标签名定位</h5><p><code>find_element_by_css_selector(&#39;input&#39;)</code></p><h5 id="通过父子关系定位"><a href="#通过父子关系定位" class="headerlink" title="通过父子关系定位"></a>通过父子关系定位</h5><p><code>find_element_by_css_selector(&#39;span&gt;input&#39;)</code></p><h5 id="通过属性定位"><a href="#通过属性定位" class="headerlink" title="通过属性定位"></a>通过属性定位</h5><p><code>find_element_by_css_selector(&quot;[name=&#39;kw&#39;]&quot;)</code></p><h5 id="组合定位"><a href="#组合定位" class="headerlink" title="组合定位"></a>组合定位</h5><p><code>find_element_by_css_selector(&quot;form.fm&gt;span&gt;input.s_ipt&quot;)</code><br>_定位的这个元素标签名为input，这个元素的class为.s_ipt,并且他有一个父元素，标签为span，他的父标签span还有一个父标签form，且form的id值为fm_</p><h2 id="用By定位元素"><a href="#用By定位元素" class="headerlink" title="用By定位元素"></a>用By定位元素</h2><h3 id="针对前面的八种定位方法，webdriver还提供了另一套写法，即统一调用find-element-方法，通过By来声明定位方法，并且传入对应定位方法的定位参数。使用此方法前要先导入By类"><a href="#针对前面的八种定位方法，webdriver还提供了另一套写法，即统一调用find-element-方法，通过By来声明定位方法，并且传入对应定位方法的定位参数。使用此方法前要先导入By类" class="headerlink" title="针对前面的八种定位方法，webdriver还提供了另一套写法，即统一调用find_element()方法，通过By来声明定位方法，并且传入对应定位方法的定位参数。使用此方法前要先导入By类"></a>针对前面的八种定位方法，webdriver还提供了另一套写法，即统一调用find_element()方法，通过By来声明定位方法，并且传入对应定位方法的定位参数。使用此方法前要先导入By类</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"></span><br><span class="line">find_element(By.ID,<span class="string">'kw'</span>)</span><br><span class="line">find_element(By.NAME,<span class="string">'wd'</span>)</span><br><span class="line">find_element(By.CLASS_NAME,<span class="string">'s_ipt'</span>)</span><br><span class="line">find_element(By.TAG_NAME,<span class="string">'input'</span>)</span><br><span class="line">find_element(By.LINK_TEXT,<span class="string">'新闻'</span>)</span><br><span class="line">find_element(By.PARTIAL_LINK_TEXT,<span class="string">"新"</span>)</span><br><span class="line">find_element(By.XPATH,<span class="string">"//*[@class='bg_btn']"</span>)</span><br><span class="line">find_element(By.CSS_SELECTOR,<span class="string">"span.bg_btn&gt;input#su"</span>)</span><br></pre></td></tr></table></figure><h2 id="XPath与CSS的类似功能对比"><a href="#XPath与CSS的类似功能对比" class="headerlink" title="XPath与CSS的类似功能对比"></a>XPath与CSS的类似功能对比</h2><table><thead><tr><th style="text-align:center">定位方式</th><th style="text-align:left">XPath</th><th style="text-align:left">CSS</th></tr></thead><tbody><tr><td style="text-align:center">标签</td><td style="text-align:left">//div</td><td style="text-align:left">div</td></tr><tr><td style="text-align:center">By id</td><td style="text-align:left">//div[@id=”eleid”]</td><td style="text-align:left">div#eleid</td></tr><tr><td style="text-align:center">By class</td><td style="text-align:left">//div[@class=”eleclass”]</td><td style="text-align:left">div.eleclass</td></tr><tr><td style="text-align:center">By属性</td><td style="text-align:left">//div[@title=”my title”]</td><td style="text-align:left">div[title=”my title”]</td></tr><tr><td style="text-align:center">定位子元素</td><td style="text-align:left">//[@id=”eleid”]/*</td><td style="text-align:left">div#eleid&gt;*</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;id定位&quot;&gt;&lt;a href=&quot;#id定位&quot; class=&quot;headerlink&quot; title=&quot;id定位&quot;&gt;&lt;/a&gt;id定位&lt;/h2&gt;&lt;h3 id=&quot;HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下&quot;&gt;&lt;a href=&quot;#HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下&quot; class=&quot;headerlink&quot; title=&quot;HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下&quot;&gt;&lt;/a&gt;HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.tomtony.top/categories/Python/"/>
+    
+      <category term="学习笔记" scheme="https://www.tomtony.top/categories/Python/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
+    
+      <category term="Selenium" scheme="https://www.tomtony.top/tags/Selenium/"/>
+    
+  </entry>
   
   <entry>
     <title>python标准异常</title>
@@ -56,9 +82,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="PageObject" scheme="https://www.tomtony.top/tags/PageObject/"/>
     
@@ -132,9 +158,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="logging" scheme="https://www.tomtony.top/tags/logging/"/>
     
@@ -211,9 +237,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="触控" scheme="https://www.tomtony.top/tags/%E8%A7%A6%E6%8E%A7/"/>
     
@@ -363,9 +389,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="swipe" scheme="https://www.tomtony.top/tags/swipe/"/>
     
@@ -389,13 +415,13 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="h5定位" scheme="https://www.tomtony.top/tags/h5%E5%AE%9A%E4%BD%8D/"/>
     
       <category term="contexts" scheme="https://www.tomtony.top/tags/contexts/"/>
-    
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
   </entry>
   
