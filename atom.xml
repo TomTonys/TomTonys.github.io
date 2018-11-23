@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.tomtony.top/"/>
-  <updated>2018-11-23T02:38:19.467Z</updated>
+  <updated>2018-11-23T03:02:13.660Z</updated>
   <id>https://www.tomtony.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://www.tomtony.top/2018/11/23/assert/"/>
     <id>https://www.tomtony.top/2018/11/23/assert/</id>
     <published>2018-11-23T02:32:00.000Z</published>
-    <updated>2018-11-23T02:38:19.467Z</updated>
+    <updated>2018-11-23T03:02:13.660Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="断言方法"><a href="#断言方法" class="headerlink" title="断言方法"></a>断言方法</h1><h6 id="以下为unittest框架的TestCase类提供的方法"><a href="#以下为unittest框架的TestCase类提供的方法" class="headerlink" title="以下为unittest框架的TestCase类提供的方法"></a>以下为unittest框架的TestCase类提供的方法</h6><a id="more"></a><table><thead><tr><th style="text-align:left">方法</th><th style="text-align:left">检查</th><th style="text-align:left">版本</th></tr></thead><tbody><tr><td style="text-align:left">assertEqual(a,b)</td><td style="text-align:left">a == b</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertNotEqual(a,b)</td><td style="text-align:left">a != b</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertTrue(x)</td><td style="text-align:left">bool(x) is True</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertFalse(x)</td><td style="text-align:left">bool(x) is False</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertIs(a,b)</td><td style="text-align:left">a is b</td><td style="text-align:left">3.1</td></tr><tr><td style="text-align:left">assertIsNot(a,b)</td><td style="text-align:left">a is not b</td><td style="text-align:left">3.1</td></tr><tr><td style="text-align:left">assertIsNone(x)</td><td style="text-align:left">x is None</td><td style="text-align:left">3.1 </td></tr><tr><td style="text-align:left">assertIsNotNone(x)</td><td style="text-align:left">x is not None</td><td style="text-align:left">3.1</td></tr><tr><td style="text-align:left">assertIn(a,b)</td><td style="text-align:left">a in b</td><td style="text-align:left">3.1</td></tr><tr><td style="text-align:left">assertNotIn(a,b)</td><td style="text-align:left">a not in b</td><td style="text-align:left">3.1</td></tr><tr><td style="text-align:left">assertIsInstance(a.b)</td><td style="text-align:left">isinstance(a,b)</td><td style="text-align:left">3.2</td></tr><tr><td style="text-align:left">assertNotIsInstance</td><td style="text-align:left">not isinstance(a,b)</td><td style="text-align:left">3.2</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h1 id="断言方法"><a href="#断言方法" class="headerlink" title="断言方法"></a>断言方法</h1><h6 id="以下为unittest框架的TestCase类提供的方法"><a href="#以下为unittest框架的TestCase类提供的方法" class="headerlink" title="以下为unittest框架的TestCase类提供的方法"></a>以下为unittest框架的TestCase类提供的方法</h6><a id="more"></a><table><thead><tr><th style="text-align:left">方法</th><th style="text-align:left">检查</th><th style="text-align:left">版本</th><th style="text-align:left">Note</th></tr></thead><tbody><tr><td style="text-align:left">assertEqual(a,b)</td><td style="text-align:left">a == b</td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertNotEqual(a,b)</td><td style="text-align:left">a != b</td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertTrue(x)</td><td style="text-align:left">bool(x) is True</td><td style="text-align:left"></td><td style="text-align:left">表达式(bool(x))是是否等于True/False</td></tr><tr><td style="text-align:left">assertFalse(x)</td><td style="text-align:left">bool(x) is False</td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertIs(a,b)</td><td style="text-align:left">a is b</td><td style="text-align:left">3.1</td><td style="text-align:left">a和b是否为同一对象</td></tr><tr><td style="text-align:left">assertIsNot(a,b)</td><td style="text-align:left">a is not b</td><td style="text-align:left">3.1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertIsNone(x)</td><td style="text-align:left">x is None</td><td style="text-align:left">3.1</td><td style="text-align:left">表达式是否为None对象</td></tr><tr><td style="text-align:left">assertIsNotNone(x)</td><td style="text-align:left">x is not None</td><td style="text-align:left">3.1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertIn(a,b)</td><td style="text-align:left">a in b</td><td style="text-align:left">3.1</td><td style="text-align:left">a是否在b中，b是否包含a</td></tr><tr><td style="text-align:left">assertNotIn(a,b)</td><td style="text-align:left">a not in b</td><td style="text-align:left">3.1</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">assertIsInstance(a.b)</td><td style="text-align:left">isinstance(a,b)</td><td style="text-align:left">3.2</td><td style="text-align:left">a是否为b的一个实例</td></tr><tr><td style="text-align:left">assertNotIsInstance</td><td style="text-align:left">not isinstance(a,b)</td><td style="text-align:left">3.2</td><td style="text-align:left"></td></tr></tbody></table>]]></content>
     
     <summary type="html">
     
@@ -134,9 +134,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
-    
       <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
+    
+      <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
     
       <category term="PageObject" scheme="https://www.tomtony.top/tags/PageObject/"/>
     
@@ -210,9 +210,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="logging" scheme="https://www.tomtony.top/tags/logging/"/>
     
@@ -289,9 +289,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="触控" scheme="https://www.tomtony.top/tags/%E8%A7%A6%E6%8E%A7/"/>
     
@@ -441,9 +441,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="swipe" scheme="https://www.tomtony.top/tags/swipe/"/>
     
@@ -467,13 +467,13 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="h5定位" scheme="https://www.tomtony.top/tags/h5%E5%AE%9A%E4%BD%8D/"/>
     
       <category term="contexts" scheme="https://www.tomtony.top/tags/contexts/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
   </entry>
   
