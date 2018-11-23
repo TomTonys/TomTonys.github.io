@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[assert]]></title>
+    <url>%2F2018%2F11%2F23%2Fassert%2F</url>
+    <content type="text"><![CDATA[断言方法以下为unittest框架的TestCase类提供的方法 方法 检查 版本 assertEqual(a,b) a == b assertNotEqual(a,b) a != b assertTrue(x) bool(x) is True assertFalse(x) bool(x) is False assertIs(a,b) a is b 3.1 assertIsNot(a,b) a is not b 3.1 assertIsNone(x) x is None 3.1 assertIsNotNone(x) x is not None 3.1 assertIn(a,b) a in b 3.1 assertNotIn(a,b) a not in b 3.1 assertIsInstance(a.b) isinstance(a,b) 3.2 assertNotIsInstance not isinstance(a,b) 3.2]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>assert</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[常用键盘操作]]></title>
     <url>%2F2018%2F11%2F19%2FWebDriver_Keys%2F</url>
     <content type="text"><![CDATA[常用的键盘操作 代码 键盘 send_keys(Keys.BACK_SPACE) 删除键(BackSpace) send_keys(Keys.SPACE) 空格键(Space) send_keys(Keys.TAP) 制表键(Tab) send_keys(Keys.ESCAPE) 回退键(Esc) send_keys(Keys.ENTER) 回车键(Enter) send_keys(Keys.CONTROL,’a’) 全选(Ctrl+A) send_keys(Keys.CONTROL,’c’) 复制(Ctrl+C) send_keys(Keys.CONTROL,’x’) 剪切(Ctrl+X) send_keys(Keys.CONTROL,’v’) 粘贴(Ctrl+V) send_keys(Keys.F1) 键盘F1 … … send_keys(Keys.F12) 键盘F12 注：使用Keys前要先导入Keys类from selenium.webdriver.common.keys import Keys]]></content>
       <categories>
-        <category>Python</category>
         <category>学习笔记</category>
       </categories>
       <tags>
@@ -18,7 +29,6 @@
     <url>%2F2018%2F11%2F19%2Ffind_element%2F</url>
     <content type="text"><![CDATA[id定位HTML规定id属性在HTML文档中必须是唯一的，这类似于公民的身份证号码，具有很强的唯一性。WebDriver提供的id定位方法就是通过元素的id属性来查找元素。通过id定位百度搜索输入框。用法如下 find_element_by_id(&#39;kw&#39;) name定位HTML规定name来指定元素的名称，因此它的作用更像是人的姓名。name的属性值，在当前页面中可以不唯一。用法find_element_by_name(&#39;name&#39;) class定位HTML规定class来指定元素的类名。其用法与id、name类似，下面实例通过class属性定位。find_element_by_class_name(&#39;s_ipt&#39;) tag定位HTML的本质就是通过tag来定义实现不同的功能，每一个元素本质上也是一个tag。因为一个tag往往定位一类功能，所以通过tag识别某个元素的概率很低。用法find_element_by_tag_name(&#39;input&#39;) link定位link定位与前面介绍的几种定位方法有所不同，它专门用来定位文本超链接。用法123&lt;a class=&quot;mnav&quot; name=&quot;tg_trnews&quot; href=&quot;http://news.baidu.com&quot;&gt;新闻&lt;/a&gt; # 链接事例find_element_by_link_text(&apos;新闻&apos;) # 用法事例 partial link定位partial link定位是对link定位的一种补充，有些文本链接会比较长，这个时候我们可以取文本链接的一部分定位，只要这一部分信息可以唯一地标识这个链接123&lt;a class=&quot;mnav&quot; name=&quot;tg_trnews&quot; href=&quot;#&quot;&gt;这是一个超级长的文件链接&lt;/a&gt; # 链接事例find_element_by_partial_link_text(&apos;这是一个超级长的&apos;) # 用法事例 XPath定位XPath是一种在XML文档中定位元素的语言。因为HTML可以看作XML的一种实现，所以selenium用户可以使用这种强大的语言在Web应用中定位元素。XPath可以分为绝对路径定位和元素的属性值定位绝对路径定位绝对路径定位就是用绝对路径来定位元素find_element_by_xpath(&quot;/html/body/div/div[2]/div/from/span/input&quot;) 元素属性定位就是利用各个tag的属性值来进行定位(任何属性都可以，只要有唯一性就行)123find_element_by_xpath(&quot;//input[@id=&apos;kw&apos;]&quot;) # 一个id为‘kw’的input标签find_element_by_xpath(&quot;//*[@class=&apos;su&apos; and @id=&apos;su_id&apos;]&quot;) # class属性值为‘su’并且id值为‘su_id’的标签 * 表示所有标签 多属性值可and连接find_element_by_xpath(&quot;//div[@id=&apos;kw&apos;]/span/input&quot;) # 一个id为‘kw’的div标签下的span下的input 和其他标签结合使用 CSS定位CSS是一种语言，他用用来描述HTML和XML文档的表现。CSS使用选择器来为页面元素绑定属性。这些选择器可以被selenium用作另外的定位策略。CSS可以较为灵活地选择控件的任意属性，一般情况下定位速度要多xpath快，但学习难度比xpath要大。 选择器 列子 描述 .class .intro class选择器，选择class=“intro”的所有元素 #id #firstname id选择器，选择id=“firstname”的所有元素 * * 选择所有元素 element p 所有p元素 element&gt;element div &gt; input 选择父元素为div的所有input元素 element + element div + input 选择同一级中紧接在div元素之后的所有input元素(同级) [attribute=value] [target=_blank] 选择target=”_blank”的所有元素 通过class属性定位find_element_by_css_selector(&#39;.s_ipt&#39;) 通过id属性定位find_element_by_css_selector(&#39;#kw&#39;) 通过tag标签名定位find_element_by_css_selector(&#39;input&#39;) 通过父子关系定位find_element_by_css_selector(&#39;span&gt;input&#39;) 通过属性定位find_element_by_css_selector(&quot;[name=&#39;kw&#39;]&quot;) 组合定位find_element_by_css_selector(&quot;form.fm&gt;span&gt;input.s_ipt&quot;) _定位的这个元素标签名为input，这个元素的class为.s_ipt,并且他有一个父元素，标签为span，他的父标签span还有一个父标签form，且form的id值为fm_ 用By定位元素针对前面的八种定位方法，webdriver还提供了另一套写法，即统一调用find_element()方法，通过By来声明定位方法，并且传入对应定位方法的定位参数。使用此方法前要先导入By类12345678910from selenium.webdriver.common.by import Byfind_element(By.ID,'kw')find_element(By.NAME,'wd')find_element(By.CLASS_NAME,'s_ipt')find_element(By.TAG_NAME,'input')find_element(By.LINK_TEXT,'新闻')find_element(By.PARTIAL_LINK_TEXT,"新")find_element(By.XPATH,"//*[@class='bg_btn']")find_element(By.CSS_SELECTOR,"span.bg_btn&gt;input#su") XPath与CSS的类似功能对比 定位方式 XPath CSS 标签 //div div By id //div[@id=”eleid”] div#eleid By class //div[@class=”eleclass”] div.eleclass By属性 //div[@title=”my title”] div[title=”my title”] 定位子元素 //[@id=”eleid”]/* div#eleid&gt;*]]></content>
       <categories>
-        <category>Python</category>
         <category>学习笔记</category>
       </categories>
       <tags>
