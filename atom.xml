@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.tomtony.top/"/>
-  <updated>2018-11-23T03:02:13.660Z</updated>
+  <updated>2018-12-04T08:19:38.334Z</updated>
   <id>https://www.tomtony.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>长网址转短网址</title>
+    <link href="https://www.tomtony.top/2018/12/04/Short_URL/"/>
+    <id>https://www.tomtony.top/2018/12/04/Short_URL/</id>
+    <published>2018-12-04T08:18:00.000Z</published>
+    <updated>2018-12-04T08:19:38.334Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="长网址转短网址"><a href="#长网址转短网址" class="headerlink" title="长网址转短网址"></a>长网址转短网址</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="获取新浪API及其API的source"><a href="#获取新浪API及其API的source" class="headerlink" title="获取新浪API及其API的source"></a>获取新浪API及其API的source</h3><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><h3 id="1-Python3-7"><a href="#1-Python3-7" class="headerlink" title="1. Python3.7"></a>1. Python3.7</h3><h3 id="2-requests"><a href="#2-requests" class="headerlink" title="2. requests"></a>2. requests</h3><h3 id="3-json"><a href="#3-json" class="headerlink" title="3. json"></a>3. json</h3><h3 id="4-tkinter-不做UI可不要"><a href="#4-tkinter-不做UI可不要" class="headerlink" title="4. tkinter(不做UI可不要)"></a>4. tkinter(不做UI可不要)</h3><a id="more"></a><h2 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h2><h3 id="https-api-t-sina-com-cn-short-url-shorten-json-source-XXXXX-amp-url-long-XXXXX"><a href="#https-api-t-sina-com-cn-short-url-shorten-json-source-XXXXX-amp-url-long-XXXXX" class="headerlink" title="https://api.t.sina.com.cn/short_url/shorten.json?source=XXXXX&amp;url_long=XXXXX"></a><code>https://api.t.sina.com.cn/short_url/shorten.json?source=XXXXX&amp;url_long=XXXXX</code></h3><h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><h3 id="quot-url-short-quot-quot-http-t-cn-EyGscwA-quot-quot-url-long-quot-quot-https-www-tomtony-top-quot-quot-type-quot-0"><a href="#quot-url-short-quot-quot-http-t-cn-EyGscwA-quot-quot-url-long-quot-quot-https-www-tomtony-top-quot-quot-type-quot-0" class="headerlink" title="[{&quot;url_short&quot;:&quot;http://t.cn/EyGscwA&quot;,&quot;url_long&quot;:&quot;https://www.tomtony.top&quot;,&quot;type&quot;:0}]"></a><code>[{&quot;url_short&quot;:&quot;http://t.cn/EyGscwA&quot;,&quot;url_long&quot;:&quot;https://www.tomtony.top&quot;,&quot;type&quot;:0}]</code></h3><h2 id="结合tkinter做个简单的UI"><a href="#结合tkinter做个简单的UI" class="headerlink" title="结合tkinter做个简单的UI"></a>结合tkinter做个简单的UI</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Get_url_short</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.source = <span class="number">2540340328</span></span><br><span class="line">        self.url = <span class="string">'https://api.t.sina.com.cn/short_url/shorten.json?'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_short</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            url_long = self.tk_url_long.get()</span><br><span class="line">            url = self.url + <span class="string">'source='</span> + str(self.source) + <span class="string">'&amp;url_long='</span> + str(url_long)</span><br><span class="line">            html = requests.get(url)</span><br><span class="line">            html = html.text</span><br><span class="line">            html = json.loads(html)</span><br><span class="line">            self.url_short = html[<span class="number">0</span>][<span class="string">'url_short'</span>]</span><br><span class="line">            Label(text=<span class="string">'Short URL:'</span>).grid(row=<span class="number">1</span>, column=<span class="number">0</span>)</span><br><span class="line">            Label(text=self.url_short).grid(row=<span class="number">1</span>, column=<span class="number">1</span>)</span><br><span class="line">            Button(self.short, text=<span class="string">"Copy"</span>, width=<span class="number">10</span>, command=self.short_copy).grid(row=<span class="number">1</span>, column=<span class="number">2</span>, sticky=W, padx=<span class="number">10</span>, pady=<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            Label(text=<span class="string">'请输入带http或https的长链接'</span>).grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">short_copy</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.short.clipboard_clear()  <span class="comment"># 清除剪贴板内容</span></span><br><span class="line">            self.short.clipboard_append(self.url_short)  <span class="comment"># 向剪贴板追加内容</span></span><br><span class="line">            Label(text=<span class="string">'URL copy succeeded'</span>,font=<span class="string">', 10'</span>).grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            Label(text=<span class="string">'URL copy failed'</span>,font=<span class="string">', 10'</span>).grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">short_begin</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.short = Tk()</span><br><span class="line">        self.short.title(<span class="string">'Short URL'</span>)</span><br><span class="line">        Label(text=<span class="string">'Long URL：'</span>).grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">        self.tk_url_long = Entry(self.short)  <span class="comment"># 好友</span></span><br><span class="line">        self.tk_url_long.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line">        Button(self.short, text=<span class="string">"转化"</span>, width=<span class="number">10</span>, command=self.get_short).grid(row=<span class="number">0</span>, column=<span class="number">2</span>, sticky=W, padx=<span class="number">10</span>, pady=<span class="number">5</span>)</span><br><span class="line">        mainloop()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    short = Get_url_short()</span><br><span class="line">    short.short_begin()</span><br></pre></td></tr></table></figure><h2 id="成品展示"><a href="#成品展示" class="headerlink" title="成品展示"></a>成品展示</h2><p><img src="https://www.tonyxingchen.top/Picture/PictureBed/blog/Short_URL/short_url.JPG" alt="short_url"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;长网址转短网址&quot;&gt;&lt;a href=&quot;#长网址转短网址&quot; class=&quot;headerlink&quot; title=&quot;长网址转短网址&quot;&gt;&lt;/a&gt;长网址转短网址&lt;/h1&gt;&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;h3 id=&quot;获取新浪API及其API的source&quot;&gt;&lt;a href=&quot;#获取新浪API及其API的source&quot; class=&quot;headerlink&quot; title=&quot;获取新浪API及其API的source&quot;&gt;&lt;/a&gt;获取新浪API及其API的source&lt;/h3&gt;&lt;h2 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h2&gt;&lt;h3 id=&quot;1-Python3-7&quot;&gt;&lt;a href=&quot;#1-Python3-7&quot; class=&quot;headerlink&quot; title=&quot;1. Python3.7&quot;&gt;&lt;/a&gt;1. Python3.7&lt;/h3&gt;&lt;h3 id=&quot;2-requests&quot;&gt;&lt;a href=&quot;#2-requests&quot; class=&quot;headerlink&quot; title=&quot;2. requests&quot;&gt;&lt;/a&gt;2. requests&lt;/h3&gt;&lt;h3 id=&quot;3-json&quot;&gt;&lt;a href=&quot;#3-json&quot; class=&quot;headerlink&quot; title=&quot;3. json&quot;&gt;&lt;/a&gt;3. json&lt;/h3&gt;&lt;h3 id=&quot;4-tkinter-不做UI可不要&quot;&gt;&lt;a href=&quot;#4-tkinter-不做UI可不要&quot; class=&quot;headerlink&quot; title=&quot;4. tkinter(不做UI可不要)&quot;&gt;&lt;/a&gt;4. tkinter(不做UI可不要)&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://www.tomtony.top/categories/Python/"/>
+    
+    
+      <category term="短链接" scheme="https://www.tomtony.top/tags/%E7%9F%AD%E9%93%BE%E6%8E%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>assert</title>
@@ -134,9 +156,9 @@
       <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="Python" scheme="https://www.tomtony.top/tags/Python/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
       <category term="PageObject" scheme="https://www.tomtony.top/tags/PageObject/"/>
     
@@ -469,11 +491,11 @@
     
       <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
-    
       <category term="h5定位" scheme="https://www.tomtony.top/tags/h5%E5%AE%9A%E4%BD%8D/"/>
     
       <category term="contexts" scheme="https://www.tomtony.top/tags/contexts/"/>
+    
+      <category term="appium" scheme="https://www.tomtony.top/tags/appium/"/>
     
   </entry>
   
@@ -500,36 +522,6 @@
       <category term="Linux" scheme="https://www.tomtony.top/tags/Linux/"/>
     
       <category term="计划任务" scheme="https://www.tomtony.top/tags/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试学习笔记</title>
-    <link href="https://www.tomtony.top/2018/10/12/%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.tomtony.top/2018/10/12/测试学习笔记/</id>
-    <published>2018-10-12T13:26:00.000Z</published>
-    <updated>2018-10-17T01:44:00.057Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ADB"><a href="#ADB" class="headerlink" title="ADB"></a>ADB</h1><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><blockquote><p>adb shell screencap /sdcard/wangdoujia.png</p></blockquote><a id="more"></a><h4 id="安装apk"><a href="#安装apk" class="headerlink" title="安装apk"></a>安装apk</h4><blockquote><p>adb install xxx.apk</p></blockquote><h4 id="删除APP"><a href="#删除APP" class="headerlink" title="删除APP"></a>删除APP</h4><blockquote><p>adb uninstall xxx<br><em>xxx为apk的包名</em></p></blockquote><h4 id="显示手机所有的APP包名"><a href="#显示手机所有的APP包名" class="headerlink" title="显示手机所有的APP包名"></a>显示手机所有的APP包名</h4><blockquote><p>adb shell pm list package</p></blockquote><hr><h1 id="aapt"><a href="#aapt" class="headerlink" title="aapt"></a>aapt</h1><h4 id="查看app的package"><a href="#查看app的package" class="headerlink" title="查看app的package"></a>查看app的package</h4><blockquote><p>aapt dump badging H:\测试学习\wandoujia.apk | findstr “package”</p></blockquote><h4 id="查看app的启动页面的activity"><a href="#查看app的启动页面的activity" class="headerlink" title="查看app的启动页面的activity"></a>查看app的启动页面的activity</h4><blockquote><p>aapt dump badging H:\测试学习\wandoujia.apk | findstr “launchable-activity”</p></blockquote><hr><h1 id="Moneky"><a href="#Moneky" class="headerlink" title="Moneky"></a>Moneky</h1><h4 id="在手机上执行100个伪随机事件"><a href="#在手机上执行100个伪随机事件" class="headerlink" title="在手机上执行100个伪随机事件"></a>在手机上执行100个伪随机事件</h4><blockquote><p>adb shell monkey 100</p></blockquote><h4 id="每次随机事件间隔3秒并显示日志"><a href="#每次随机事件间隔3秒并显示日志" class="headerlink" title="每次随机事件间隔3秒并显示日志"></a>每次随机事件间隔3秒并显示日志</h4><blockquote><p>adb shell monkey -v –throttle 3000 10</p></blockquote><h4 id="自定义事件概率"><a href="#自定义事件概率" class="headerlink" title="自定义事件概率"></a>自定义事件概率</h4><h6 id="touch概率为30"><a href="#touch概率为30" class="headerlink" title="touch概率为30%"></a>touch概率为30%</h6><blockquote><p>adb shell monkey -v –pct-touch 30 200<br>_触控<em>touch,启动事件—appswtich,手势—motion,旋转—rotation,轨迹—trackball,基本导航—nav,主要导航-majornav,系统按键-syskeys</em></p></blockquote><h6 id="设定多个事件的概率"><a href="#设定多个事件的概率" class="headerlink" title="设定多个事件的概率"></a>设定多个事件的概率</h6><blockquote><p>adb shell monkey -v –pct-touch 30 –pct-motion 40 200</p></blockquote><h4 id="在指定的地方执行事件"><a href="#在指定的地方执行事件" class="headerlink" title="在指定的地方执行事件"></a>在指定的地方执行事件</h4><h6 id="在指定的app里进行随机事件"><a href="#在指定的app里进行随机事件" class="headerlink" title="在指定的app里进行随机事件"></a>在指定的app里进行随机事件</h6><blockquote><p>adb shell monkey -p 包名 100</p></blockquote><h6 id="在指定的activity内进行随机事件"><a href="#在指定的activity内进行随机事件" class="headerlink" title="在指定的activity内进行随机事件"></a>在指定的activity内进行随机事件</h6><blockquote><p>adb shell monkey -c activity 100</p></blockquote><h4 id="遇到特殊事件处理"><a href="#遇到特殊事件处理" class="headerlink" title="遇到特殊事件处理"></a>遇到特殊事件处理</h4><h6 id="遇到crash后继续事件"><a href="#遇到crash后继续事件" class="headerlink" title="遇到crash后继续事件"></a>遇到crash后继续事件</h6><blockquote><p>adb shell monkey –ignore-crashes</p></blockquote><h6 id="遇到超时时继续事件"><a href="#遇到超时时继续事件" class="headerlink" title="遇到超时时继续事件"></a>遇到超时时继续事件</h6><blockquote><p>adb shell monkey –ignore-timouts</p></blockquote><h6 id="遇到权限不足时继续事件"><a href="#遇到权限不足时继续事件" class="headerlink" title="遇到权限不足时继续事件"></a>遇到权限不足时继续事件</h6><blockquote><p>adb shell monkey –ignore-security-exceptions</p></blockquote><h4 id="Moneky-API"><a href="#Moneky-API" class="headerlink" title="Moneky API"></a>Moneky API</h4><h6 id="启动应用的activity"><a href="#启动应用的activity" class="headerlink" title="启动应用的activity"></a>启动应用的activity</h6><blockquote><p>LaunchActivity(pkg_name,cl_name)<br><em>参数：包名，启动的activity</em></p></blockquote><h6 id="模拟一次点击事件"><a href="#模拟一次点击事件" class="headerlink" title="模拟一次点击事件"></a>模拟一次点击事件</h6><blockquote><p>Tap(x,y,tapDuration)<br><em>参数：x,y坐标。tap持续时间(省)</em></p></blockquote><h6 id="设置睡眠时间"><a href="#设置睡眠时间" class="headerlink" title="设置睡眠时间"></a>设置睡眠时间</h6><blockquote><p>UserWait(sleepTime)</p></blockquote><h6 id="按键"><a href="#按键" class="headerlink" title="按键"></a>按键</h6><blockquote><p>DispatchPress(keyName)</p></blockquote><h6 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h6><blockquote><p>DispatchString(input)</p></blockquote><h6 id="打开关闭软键盘"><a href="#打开关闭软键盘" class="headerlink" title="打开关闭软键盘"></a>打开关闭软键盘</h6><blockquote><p>DispatchFlip(true/false)</p></blockquote><h6 id="长按事件"><a href="#长按事件" class="headerlink" title="长按事件"></a>长按事件</h6><blockquote><p>PressAndHold(x,y,pressDuration)</p></blockquote><h6 id="缩放手势"><a href="#缩放手势" class="headerlink" title="缩放手势"></a>缩放手势</h6><blockquote><p>Drag(xStart,yStart,xend,yend,x2Start,y2Start,x2end,y2end,stepCount)</p></blockquote><h6 id="运行1次脚本"><a href="#运行1次脚本" class="headerlink" title="运行1次脚本"></a>运行1次脚本</h6><blockquote><p>adb shell monkey -f /sdcard/test.txt -v -v 1<br><em>脚本是用Moneky API编写的脚本,文件后缀理论不限一般为.txt,脚本需放在测试手机内</em></p></blockquote><h4 id="log保存"><a href="#log保存" class="headerlink" title="log保存"></a>log保存</h4><blockquote><p>adb shell monkey 100 1&gt;d:\log.log 2&gt;d:\error.log<br><em>1标准流在log.log 文件中,2错误流在error.log中</em></p></blockquote><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><blockquote><blockquote><p>adb shell monkey -p com.tal.kaoyan –pct-touch 40 –pct-motion 25 –pct-appswitch 10 –pct-rotation 5 -s 1666 –throttle 400 –ignore-crashes –ignore-timeouts -v -v 200<br><em>在考研APP里以触控25%手势40%启动10%旋转5%的概率和seed为1666为条件执行200次随机事件，并且每个事件隔0.4秒执行一次，在执行中遇到crash和权限问题都跳过继续执行之后的事件</em></p></blockquote></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ADB&quot;&gt;&lt;a href=&quot;#ADB&quot; class=&quot;headerlink&quot; title=&quot;ADB&quot;&gt;&lt;/a&gt;ADB&lt;/h1&gt;&lt;h4 id=&quot;截图&quot;&gt;&lt;a href=&quot;#截图&quot; class=&quot;headerlink&quot; title=&quot;截图&quot;&gt;&lt;/a&gt;截图&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;adb shell screencap /sdcard/wangdoujia.png&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.tomtony.top/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="测试" scheme="https://www.tomtony.top/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="adb" scheme="https://www.tomtony.top/tags/adb/"/>
-    
-      <category term="aapt" scheme="https://www.tomtony.top/tags/aapt/"/>
-    
-      <category term="Moneky" scheme="https://www.tomtony.top/tags/Moneky/"/>
     
   </entry>
   

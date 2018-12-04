@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[长网址转短网址]]></title>
+    <url>%2F2018%2F12%2F04%2FShort_URL%2F</url>
+    <content type="text"><![CDATA[长网址转短网址准备工作获取新浪API及其API的source环境1. Python3.72. requests3. json4. tkinter(不做UI可不要) 核心https://api.t.sina.com.cn/short_url/shorten.json?source=XXXXX&amp;url_long=XXXXX返回值[{&quot;url_short&quot;:&quot;http://t.cn/EyGscwA&quot;,&quot;url_long&quot;:&quot;https://www.tomtony.top&quot;,&quot;type&quot;:0}]结合tkinter做个简单的UI12345678910111213141516171819202122232425262728293031323334353637383940414243import requestsimport jsonfrom tkinter import *class Get_url_short(): def __init__(self): self.source = 2540340328 self.url = 'https://api.t.sina.com.cn/short_url/shorten.json?' def get_short(self): try: url_long = self.tk_url_long.get() url = self.url + 'source=' + str(self.source) + '&amp;url_long=' + str(url_long) html = requests.get(url) html = html.text html = json.loads(html) self.url_short = html[0]['url_short'] Label(text='Short URL:').grid(row=1, column=0) Label(text=self.url_short).grid(row=1, column=1) Button(self.short, text="Copy", width=10, command=self.short_copy).grid(row=1, column=2, sticky=W, padx=10, pady=5) except: Label(text='请输入带http或https的长链接').grid(row=2, column=1) def short_copy(self): try: self.short.clipboard_clear() # 清除剪贴板内容 self.short.clipboard_append(self.url_short) # 向剪贴板追加内容 Label(text='URL copy succeeded',font=', 10').grid(row=2, column=1) except: Label(text='URL copy failed',font=', 10').grid(row=2, column=1) def short_begin(self): self.short = Tk() self.short.title('Short URL') Label(text='Long URL：').grid(row=0, column=0) self.tk_url_long = Entry(self.short) # 好友 self.tk_url_long.grid(row=0, column=1) Button(self.short, text="转化", width=10, command=self.get_short).grid(row=0, column=2, sticky=W, padx=10, pady=5) mainloop()if __name__ == '__main__': short = Get_url_short() short.short_begin() 成品展示]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>短链接</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[assert]]></title>
     <url>%2F2018%2F11%2F23%2Fassert%2F</url>
     <content type="text"><![CDATA[断言方法以下为unittest框架的TestCase类提供的方法 方法 检查 版本 Note assertEqual(a,b) a == b assertNotEqual(a,b) a != b assertTrue(x) bool(x) is True 表达式(bool(x))是是否等于True/False assertFalse(x) bool(x) is False assertIs(a,b) a is b 3.1 a和b是否为同一对象 assertIsNot(a,b) a is not b 3.1 assertIsNone(x) x is None 3.1 表达式是否为None对象 assertIsNotNone(x) x is not None 3.1 assertIn(a,b) a in b 3.1 a是否在b中，b是否包含a assertNotIn(a,b) a not in b 3.1 assertIsInstance(a.b) isinstance(a,b) 3.2 a是否为b的一个实例 assertNotIsInstance not isinstance(a,b) 3.2]]></content>
@@ -55,8 +66,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>appium</tag>
         <tag>Python</tag>
+        <tag>appium</tag>
         <tag>PageObject</tag>
       </tags>
   </entry>
@@ -219,9 +230,9 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>appium</tag>
         <tag>h5定位</tag>
         <tag>contexts</tag>
+        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
