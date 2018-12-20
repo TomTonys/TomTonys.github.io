@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[记录一次爬取Alibaba商品库存]]></title>
+    <url>%2F2018%2F12%2F20%2FAlibaba_stock%2F</url>
+    <content type="text"><![CDATA[需求由于淘宝近期暂停了批量商品库存同步功能，导致一件传淘宝用户查看/同步库存很难受，需要一个一个商品的点开才能看到库存。所以就想有没有什么批量查库存的工具，网上到时有很多，但都是需要收费的，所以就为自己写一个。 需要数据商品名称、商品规格、商品库存分析网页经过分析网页发现所需数据可直接在网页源码中找到，其商品名称在&lt;meta property=&quot;og:title&quot; content=&quot;xxx&quot;/&gt;里，商品规格与库存都在skuMap里初期构想通过上面分析网页发现找到数据不需要异步，直接就出现在网页源码中，所以利用requests库将网页内容扒下来，再通过re的正则筛选需要的信息，因为规格与库存都在skumap里，所以要先扒出skumap的内容再在skumap的内容里查找规格和库存。初期代码实现通过requests库扒下网页123html = requests.get(url)html.encoding = 'gbk'html = html.text 通过re的正则获取数据1234title = re.findall(r'&lt;meta property="og:title" content="(.*?)"&gt;',html,re.S) #获取商品名称skumap = re.findall(r'"skuMap":&#123;(.*?)&#125;&#125;,',html,re.S) #匹配skumap的内容spec = re.findall(r'"(.*?):&#123;"',skumap,re.S) #在skumap中查 获取商品规格stock = re.findall(r'"canBookCount":([0-9]\d*),',skumap,re.S) #在skumap中查 获取商品库存 初期不足因为Python的正则匹配默认贪婪开启原则，虽然加了”?”关闭贪婪原则，但商品规格他有数字/字符/中文等混合组合而成，所以即使关闭了贪婪，但还是会多的匹配。再次分析网页数据发现数据呈现为如下1234&quot;粉红&amp;gt;均码&quot;:&#123;&quot;specId&quot;:&quot;452b5d2989a4a3fa4fc3c1e8a97f47cd&quot;,&quot;skuStorageInfos&quot;:&quot;[]&quot;,&quot;saleCount&quot;:54,&quot;canBookCount&quot;:160,&quot;skuId&quot;:3827147188400&#125;,&quot;银&amp;gt;均码&quot;:&#123;&quot;specId&quot;:&quot;eb9b5c651f824a16fe2c02d393b22ab0&quot;,&quot;skuStorageInfos&quot;:&quot;[]&quot;,&quot;saleCount&quot;:84,&quot;canBookCount&quot;:125,&quot;skuId&quot;:3827147188401&#125;,&quot;黑色&amp;gt;均码&quot;:&#123;&quot;specId&quot;:&quot;7ccb9e57d1d5f349172254f5c3eb0f3e&quot;,&quot;skuStorageInfos&quot;:&quot;[]&quot;,&quot;saleCount&quot;:88,&quot;canBookCount&quot;:138,&quot;skuId&quot;:3827147188399&#125;,&quot;蓝&amp;gt;均码&quot;:&#123;&quot;specId&quot;:&quot;292c801ce4f1b2a78b43aaab27bb21f6&quot;,&quot;skuStorageInfos&quot;:&quot;[]&quot;,&quot;saleCount&quot;:100,&quot;canBookCount&quot;:124,&quot;skuId&quot;:3827147188402&#125; 初期处理方法将skumap的数据用.split()将其分割，然后在通过for循环一条一条的匹配1skuMap = skuMap.split('&#125;,') 规格和库存新的匹配代码1234567spec = []stock = []for skum in skuMap: specs = re.findall(r'"(.*?):&#123;"',skum,re.S) #获取商品规格 stocks = re.findall(r'"canBookCount":([0-9]\d*),',skum,re.S) #获取商品库存 spec.append(specs) stock.append(stocks) 进过代码修改能够快速完整的爬取想要爬取的网页但还是不能完成需求的爬取多个商品初步构想另外创建一个数据文件url.txt用于保存需要扒取的网页地址，蜘蛛运行时先读取此数据文件的url链接，在for循环所有的链接代码实现12with open('url.txt', 'r') as f: data = f.read().splitlines() 再次的代码调整修改，此蜘蛛已经能快速高效的完成做业，但多次爬取后发现需要登录账号初步构想在requests.get()时加上cookie加上headers。但经过多次尝试为成功。最终祭出终极大杀器selenium的无头浏览器PhantomJS()来爬取网页，放弃requests代码实现123driver = webdriver.PhantomJS()driver.get(url)html = self.driver.page_source #获取网页源代码 运用大杀器后处理扒去速度慢外就只剩下爬取数据的保存问题代码实现1234567891011121314with open('stock.txt','a+') as f: print(title[0]) f.write(title[0]) f.write('\n') for sp,st,mo in zip(spec,stock,money): sp_st = str(sp) + str(mo) + str(st) f.write(sp_st) f.write('\n') f.write(url) f.write('\n') f.write('++++++++++++++++++++') f.write('\n') print("%s Done"%title[0]) return True 关于selenium的get慢的问题，是因为get后要等网页渲染完后才进行下一步，所以爬取笔requests慢很多。导图 最终代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293import refrom selenium import webdriverclass Stock(): def __init__(self): self.headers = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36') def get_html(self, url): self.driver = webdriver.PhantomJS() self.driver.get(url) html = self.driver.page_source # 获取整个网页源代码 self.driver.get_screenshot_as_file('verify.png') return html # 读取TXT文件内的url def get_url(self): with open('url.txt', 'r') as f: data = f.read().splitlines() return data #获取title def get_title(self, html): title = re.findall(r'&lt;meta property="og:title" content="(.*?)"&gt;',html,re.S) return title def get_skumap(self, html): skumap = re.findall(r'"skuMap":&#123;(.*?)&#125;&#125;,',html,re.S) return skumap #获取规格 def get_spec(self, skumap): spec = [] for skum in skumap: skum = skum.replace('&amp;gt;', '') specs = re.findall(r'"(.+?):&#123;"',skum,re.S) spec.append(specs) return spec #获取库存 def get_stock(self, skumap): stock = [] for skum in skumap: skum = skum.replace('&amp;gt;', '') stocks = re.findall(r'"canBookCount":([0-9]\d*),',skum,re.S) stock.append(stocks) return stock #获取价格(因关键字不同一，某些商品无法获取到) def get_money(self, skumap): money = [] for skum in skumap: skum = skum.replace('&amp;gt;', '') moneys = re.findall(r'"discountPrice":"(.*?)","canBookCount"',skum,re.S) money.append(moneys) return money #数据保存为TXT def save_stock(self,title,spec,stock,money,url): with open('stock.txt','a+') as f: print(title[0]) f.write(title[0]) f.write('\n') for sp,st,mo in zip(spec,stock,money): sp_st = str(sp) + str(mo) + str(st) f.write(sp_st) f.write('\n') f.write(url) f.write('\n') f.write('++++++++++++++++++++') f.write('\n') print("%s Done"%title[0]) return True #开始 def star(self): urls = self.get_url() for url in urls: if url == '': continue else: html = self.get_html(url=url) title = self.get_title(html) skumap = self.get_skumap(html=html) skumap = skumap[0].split('&#125;,') spec = self.get_spec(skumap=skumap) stock = self.get_stock(skumap=skumap) money = self.get_money(skumap=skumap) self.save_stock(title,spec,stock,money,url) self.driver.quit()if __name__ == '__main__': tb = Stock() tb.star()]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Selenium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[长网址转短网址]]></title>
     <url>%2F2018%2F12%2F04%2FShort_URL%2F</url>
     <content type="text"><![CDATA[长网址转短网址准备工作获取新浪API及其API的source环境1. Python3.72. requests3. json4. tkinter(不做UI可不要) 核心https://api.t.sina.com.cn/short_url/shorten.json?source=XXXXX&amp;url_long=XXXXX返回值[{&quot;url_short&quot;:&quot;http://t.cn/EyGscwA&quot;,&quot;url_long&quot;:&quot;https://www.tomtony.top&quot;,&quot;type&quot;:0}]结合tkinter做个简单的UI12345678910111213141516171819202122232425262728293031323334353637383940414243import requestsimport jsonfrom tkinter import *class Get_url_short(): def __init__(self): self.source = 2540340328 self.url = 'https://api.t.sina.com.cn/short_url/shorten.json?' def get_short(self): try: url_long = self.tk_url_long.get() url = self.url + 'source=' + str(self.source) + '&amp;url_long=' + str(url_long) html = requests.get(url) html = html.text html = json.loads(html) self.url_short = html[0]['url_short'] Label(text='Short URL:').grid(row=1, column=0) Label(text=self.url_short).grid(row=1, column=1) Button(self.short, text="Copy", width=10, command=self.short_copy).grid(row=1, column=2, sticky=W, padx=10, pady=5) except: Label(text='请输入带http或https的长链接').grid(row=2, column=1) def short_copy(self): try: self.short.clipboard_clear() # 清除剪贴板内容 self.short.clipboard_append(self.url_short) # 向剪贴板追加内容 Label(text='URL copy succeeded',font=', 10').grid(row=2, column=1) except: Label(text='URL copy failed',font=', 10').grid(row=2, column=1) def short_begin(self): self.short = Tk() self.short.title('Short URL') Label(text='Long URL：').grid(row=0, column=0) self.tk_url_long = Entry(self.short) # 好友 self.tk_url_long.grid(row=0, column=1) Button(self.short, text="转化", width=10, command=self.get_short).grid(row=0, column=2, sticky=W, padx=10, pady=5) mainloop()if __name__ == '__main__': short = Get_url_short() short.short_begin() 成品展示]]></content>
@@ -66,8 +78,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>appium</tag>
         <tag>Python</tag>
+        <tag>appium</tag>
         <tag>PageObject</tag>
       </tags>
   </entry>
@@ -104,8 +116,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>测试</tag>
         <tag>appium</tag>
+        <tag>测试</tag>
         <tag>logging</tag>
         <tag>日志</tag>
       </tags>
@@ -142,8 +154,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>测试</tag>
         <tag>appium</tag>
+        <tag>测试</tag>
         <tag>触控</tag>
       </tags>
   </entry>
@@ -216,8 +228,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>测试</tag>
         <tag>appium</tag>
+        <tag>测试</tag>
         <tag>swipe</tag>
       </tags>
   </entry>
@@ -229,10 +241,10 @@
         <category>学习笔记</category>
       </categories>
       <tags>
+        <tag>appium</tag>
         <tag>测试</tag>
         <tag>h5定位</tag>
         <tag>contexts</tag>
-        <tag>appium</tag>
       </tags>
   </entry>
   <entry>
